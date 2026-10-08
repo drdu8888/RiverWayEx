@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Class Poll — Instructor</title>
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<div class="wrap">
+  <h1>Class Poll — Instructor</h1>
+  <p class="subtitle">Students use the plain link (the site's home page). This page is for you only.</p>
+
+  <div class="card" id="gate">
+    <label for="key">Instructor key</label>
+    <input type="password" id="key" placeholder="Enter the instructor key" autocomplete="off" />
+    <button id="unlockBtn">Unlock</button>
+    <div class="status error" id="gateError"></div>
+  </div>
+
+  <div id="main" style="display:none;">
+    <nav class="topnav">
+      <a href="/instructor.html" class="here">Poll console</a>
+      <a href="/analysis.html">Analysis &amp; heat map</a>
+      <a href="/present.html" data-newtab>Class view (projector)</a>
+    </nav>
+
+    <div class="card">
+      <h2 style="margin-top:0;">Start a new statement</h2>
+      <label for="question">Statement students will rate</label>
+      <textarea id="question" rows="2" placeholder="e.g. Generative AI tools help students think more deeply."></textarea>
+      <div class="status" style="margin:-4px 0 12px;">Students choose from: Strongly disagree · Disagree · Neutral · Agree · Strongly agree. Starting a new statement closes the previous one.</div>
+      <button id="startBtn">Start poll</button>
+      <div class="status error" id="startError"></div>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0;">Current statement <span id="statusPill" class="pill"></span></h2>
+      <div id="currentQ">No statement started yet.</div>
+      <div id="liveResults"></div>
+      <div class="row" style="margin-top:12px;">
+        <button id="closeBtn">Close poll</button>
+        <button class="secondary" id="reopenBtn">Reopen</button>
+        <button class="secondary" id="exportBtn" type="button">Download all poll responses (CSV)</button>
+      </div>
+      <div class="status" id="exportNote">The CSV contains last-4 codes and answers. Keep it somewhere private; you can re-import it on the Analysis page if the server ever restarts.</div>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0;">History</h2>
+      <div id="history"><p class="status">No statements yet.</p></div>
+    </div>
+  </div>
+</div>
+<script src="/common.js"></script>
+<script src="/render.js"></script>
+<script src="/page-instructor.js"></script>
+</body>
+</html>

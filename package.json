@@ -1,0 +1,15 @@
+{
+  "name": "live-poll",
+  "version": "2.0.0",
+  "description": "Self-hosted live classroom poll (5-point agree/disagree statements keyed by last-4 student ID digits) with a survey-correlation heat map. Zero external dependencies.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/api.test.js test/render.test.js test/power.test.js",
+    "sample-data": "node tools/make-sample-data.js",
+    "codebook": "node tools/build-codebook.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

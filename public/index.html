@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Class Poll</title>
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<div class="wrap">
+  <h1>Class Poll</h1>
+  <p class="subtitle">Enter the last 4 digits of your student ID, then choose how strongly you agree.</p>
+
+  <div class="card">
+    <label for="code">Last 4 digits of your student ID</label>
+    <input type="text" id="code" class="code" maxlength="4" placeholder="0000" inputmode="numeric" pattern="[0-9]*" autocomplete="off" />
+    <div class="status" id="codeStatus"></div>
+    <div class="status">Your answer is linked to the survey you completed. Only your instructor sees individual answers; class results are shown as totals.</div>
+  </div>
+
+  <div class="card" id="pollCard">
+    <div id="pollBody">Loading…</div>
+  </div>
+</div>
+<script src="/page-student.js"></script>
+</body>
+</html>

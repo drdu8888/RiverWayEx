@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Class Poll — Analysis</title>
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<div class="wrap wide">
+  <h1>Analysis &amp; heat map</h1>
+  <p class="subtitle">How each poll lines up with the survey, and with your other polls. Instructor eyes only: individual-level patterns appear here.</p>
+
+  <div class="card" id="gate" style="max-width:640px;">
+    <label for="key">Instructor key</label>
+    <input type="password" id="key" placeholder="Enter the instructor key" autocomplete="off" />
+    <button id="unlockBtn">Unlock</button>
+    <div class="status error" id="gateError"></div>
+  </div>
+
+  <div id="main" style="display:none;">
+    <nav class="topnav">
+      <a href="/instructor.html">Poll console</a>
+      <a href="/analysis.html" class="here">Analysis &amp; heat map</a>
+      <a href="/present.html" data-newtab>Class view (projector)</a>
+    </nav>
+
+    <!-- 1. data -->
+    <div class="card">
+      <h2 style="margin-top:0;">1 · Survey data</h2>
+      <div class="banner info"><strong>Where this data lives</strong>
+        The survey file you upload is held in this server's memory only. It is never saved to disk, never written to GitHub, never logged,
+        and the page loads no outside scripts or services. It disappears when the server restarts or you press “Remove survey data”.
+      </div>
+      <div id="surveyStatus"></div>
+      <div id="uploadBox" class="drop">
+        <p style="margin:0 0 8px;"><strong>Drop the Qualtrics export (.csv) here</strong>, or choose it:</p>
+        <input type="file" id="surveyFile" accept=".csv,text/csv" />
+        <div class="status">Qualtrics → Data &amp; Analysis → Export Data → CSV (either “choice text” or “numeric values” works). The file needs a column holding each student's last 4 digits.</div>
+      </div>
+      <div id="idPicker" style="display:none;" class="banner warn">
+        <strong>Which column holds the last 4 digits of the student ID?</strong>
+        <div class="ctl" style="margin:8px 0 0;">
+          <select id="idSelect"></select>
+          <button id="idGo" type="button">Use this column</button>
+        </div>
+      </div>
+      <div id="uploadMsg"></div>
+      <div class="row" style="margin-top:10px;">
+        <button class="secondary danger-text" id="clearBtn" type="button" style="display:none;">Remove survey data from the server</button>
+      </div>
+
+      <details style="margin-top:16px;">
+        <summary style="cursor:pointer;font-weight:600;">Restore earlier poll results (after a server restart)</summary>
+        <p class="status">If the server restarted and lost earlier polls, re-import the CSV you downloaded from the Poll console. Rounds already present are skipped.</p>
+        <input type="file" id="pollFile" accept=".csv,text/csv" />
+        <div id="pollImportMsg" class="status"></div>
+      </details>
+    </div>
+
+    <!-- 2. polls -->
+    <div class="card">
+      <h2 style="margin-top:0;">2 · Polls included</h2>
+      <label class="chk" style="display:flex;gap:6px;align-items:center;color:var(--ink);font-size:.9rem;"><input type="checkbox" id="includeOpen" /> Include the poll that is still open</label>
+      <div id="pollTable"></div>
+      <div id="skippedNote" class="status"></div>
+    </div>
+
+    <!-- 3. chance -->
+    <div class="card" id="chanceCard" style="display:none;">
+      <h2 style="margin-top:0;">3 · Is there more here than chance? <span class="muted small" id="chancePoll"></span></h2>
+      <div id="chanceBody"></div>
+    </div>
+
+    <!-- 4. heat map -->
+    <div class="card">
+      <h2 style="margin-top:0;">4 · Heat map</h2>
+      <div class="banner info" id="readme"><strong>How to read it</strong>
+        Each cell is a rank correlation (ρ, “rho”) between a survey variable (row) and agreement with a poll statement (column). Orange: students who score higher on the variable
+        agree <em>more</em>. Blue: they agree <em>less</em>. Every correlation is shown, whether or not it is statistically significant.
+        Markers: <strong>**</strong> q &lt; .05 · <strong>*</strong> q &lt; .10 (both survive correction for the many comparisons) · <strong>†</strong> raw p &lt; .05 only, which at this many comparisons is often chance.
+        Click a cell for the breakdown; click a poll heading to sort by it.
+      </div>
+      <div id="controls">
+        <div class="ctl">
+          <div><label for="sortBy">Sort rows by</label><select id="sortBy"></select></div>
+          <div><label for="limit">Show</label>
+            <select id="limit"><option value="25">top 25</option><option value="40" selected>top 40</option><option value="80">top 80</option><option value="100000">all</option></select></div>
+          <div><label for="minAbs">Only |ρ| at least</label>
+            <select id="minAbs"><option value="0">any</option><option value="0.2">.20</option><option value="0.3">.30</option><option value="0.4">.40</option><option value="0.5">.50</option></select></div>
+          <label class="chk"><input type="checkbox" id="onlyQ" /> only q &lt; .10</label>
+          <div><label for="search">Search variables</label><input type="search" id="search" placeholder="e.g. religion" /></div>
+        </div>
+        <div style="margin-bottom:8px;"><label>Survey sections</label><div class="chips" id="secChips"></div></div>
+        <div style="margin-bottom:8px;"><label>Poll columns</label><div class="chips" id="pollChips"></div></div>
+      </div>
+      <div class="split two">
+        <div>
+          <div class="muted small" id="shownCount" style="margin-bottom:6px;"></div>
+          <div class="hm-scroll" id="heat"></div>
+          <div id="legend"></div>
+          <div class="row" style="margin-top:8px;"><button class="secondary" id="csvBtn" type="button">Download the rows shown (CSV)</button></div>
+        </div>
+        <div class="card panel" id="detail"><p class="muted">Click a cell in the heat map to see how the poll answers break down.</p></div>
+      </div>
+    </div>
+
+    <!-- 5. class-safe -->
+    <div class="card">
+      <h2 style="margin-top:0;">5 · Class-safe view for the projector</h2>
+      <p class="status" style="margin-top:0;">The class view shows the poll histogram and the patterns that line up with it, but never a group smaller than 5 students, never an individual, and never a student code.
+        Sensitive sections stay off unless you switch them on here.</p>
+      <div class="chips" id="presentChips"></div>
+      <div class="row" style="margin-top:12px;"><button id="openPresent" type="button">Open class view in a new tab</button></div>
+    </div>
+  </div>
+</div>
+<script src="/common.js"></script>
+<script src="/render.js"></script>
+<script src="/page-analysis.js"></script>
+</body>
+</html>

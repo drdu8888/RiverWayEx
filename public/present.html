@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Class Poll — Class view</title>
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<div class="wrap present">
+  <div class="card" id="gate" style="max-width:520px;">
+    <label for="key">Instructor key</label>
+    <input type="password" id="key" placeholder="Enter the instructor key" autocomplete="off" />
+    <button id="unlockBtn">Unlock</button>
+    <div class="status error" id="gateError"></div>
+  </div>
+
+  <div id="main" style="display:none;">
+    <div class="ctl" id="controls" style="justify-content:space-between;">
+      <div><label for="pollSel">Statement</label><select id="pollSel"></select></div>
+      <div class="row">
+        <button class="secondary" id="toggleBtn" type="button">Show patterns</button>
+      </div>
+    </div>
+
+    <div id="stage">
+      <div class="card">
+        <span class="pill closed" id="pollLabel"></span>
+        <h1 id="statement" style="font-size:1.8em;margin:8px 0 0;"></h1>
+        <div id="histo"></div>
+        <div class="status" id="histoNote"></div>
+      </div>
+
+      <div id="patterns" style="display:none;">
+        <div class="card">
+          <h2 style="margin-top:0;">What lines up with this?</h2>
+          <div class="banner warn" id="caution" style="display:none;"></div>
+          <p class="muted" id="patternNote"></p>
+          <div class="prow-grid" id="patternRows"></div>
+          <div class="row" style="margin-top:10px;"><button class="secondary" id="moreBtn" type="button" style="display:none;">Show more</button></div>
+          <div class="likert-key" id="key2"></div>
+        </div>
+        <div class="card" id="matrixCard" style="display:none;">
+          <h2 style="margin-top:0;">The same variables across every statement so far</h2>
+          <div class="hm-scroll" id="matrix"></div>
+          <div id="legend"></div>
+        </div>
+        <p class="muted small">Patterns in a small class are suggestive, not proof, and a pattern is not a cause. Only groups of 5 or more students are ever shown; no individual answers are displayed.</p>
+      </div>
+    </div>
+    <div class="banner info" id="notReady" style="display:none;"></div>
+  </div>
+</div>
+<script src="/common.js"></script>
+<script src="/render.js"></script>
+<script src="/page-present.js"></script>
+</body>
+</html>

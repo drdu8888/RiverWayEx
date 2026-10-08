@@ -1,0 +1,152 @@
+round_id,round_question,student_code,choice,timestamp
+r_fake1,Generative AI tools help students think more deeply.,0457,Neutral,2026-09-22T14:00:00.000Z
+r_fake1,Generative AI tools help students think more deeply.,8267,Strongly agree,2026-09-22T14:00:09.000Z
+r_fake1,Generative AI tools help students think more deeply.,0804,Disagree,2026-09-22T14:00:18.000Z
+r_fake1,Generative AI tools help students think more deeply.,5557,Strongly agree,2026-09-22T14:00:27.000Z
+r_fake1,Generative AI tools help students think more deeply.,0809,Agree,2026-09-22T14:00:36.000Z
+r_fake1,Generative AI tools help students think more deeply.,7397,Neutral,2026-09-22T14:00:45.000Z
+r_fake1,Generative AI tools help students think more deeply.,9599,Strongly agree,2026-09-22T14:01:03.000Z
+r_fake1,Generative AI tools help students think more deeply.,1787,Agree,2026-09-22T14:01:12.000Z
+r_fake1,Generative AI tools help students think more deeply.,5764,Neutral,2026-09-22T14:01:21.000Z
+r_fake1,Generative AI tools help students think more deeply.,1055,Strongly agree,2026-09-22T14:01:39.000Z
+r_fake1,Generative AI tools help students think more deeply.,2464,Strongly disagree,2026-09-22T14:01:48.000Z
+r_fake1,Generative AI tools help students think more deeply.,6169,Strongly disagree,2026-09-22T14:01:57.000Z
+r_fake1,Generative AI tools help students think more deeply.,8634,Disagree,2026-09-22T14:02:06.000Z
+r_fake1,Generative AI tools help students think more deeply.,5077,Neutral,2026-09-22T14:02:24.000Z
+r_fake1,Generative AI tools help students think more deeply.,9509,Strongly disagree,2026-09-22T14:02:42.000Z
+r_fake1,Generative AI tools help students think more deeply.,1387,Strongly disagree,2026-09-22T14:02:51.000Z
+r_fake1,Generative AI tools help students think more deeply.,2361,Strongly agree,2026-09-22T14:03:00.000Z
+r_fake1,Generative AI tools help students think more deeply.,1370,Strongly agree,2026-09-22T14:03:09.000Z
+r_fake1,Generative AI tools help students think more deeply.,6466,Neutral,2026-09-22T14:03:18.000Z
+r_fake1,Generative AI tools help students think more deeply.,4050,Strongly disagree,2026-09-22T14:03:27.000Z
+r_fake1,Generative AI tools help students think more deeply.,5988,Strongly agree,2026-09-22T14:03:36.000Z
+r_fake1,Generative AI tools help students think more deeply.,8766,Strongly agree,2026-09-22T14:03:45.000Z
+r_fake1,Generative AI tools help students think more deeply.,3277,Strongly agree,2026-09-22T14:03:54.000Z
+r_fake1,Generative AI tools help students think more deeply.,4443,Agree,2026-09-22T14:04:03.000Z
+r_fake1,Generative AI tools help students think more deeply.,9999,Agree,2026-09-22T14:10:00.000Z
+r_fake2,Governments should regulate the development of AI.,8267,Strongly disagree,2026-09-29T14:00:09.000Z
+r_fake2,Governments should regulate the development of AI.,0804,Agree,2026-09-29T14:00:18.000Z
+r_fake2,Governments should regulate the development of AI.,5557,Disagree,2026-09-29T14:00:27.000Z
+r_fake2,Governments should regulate the development of AI.,7397,Agree,2026-09-29T14:00:45.000Z
+r_fake2,Governments should regulate the development of AI.,9537,Agree,2026-09-29T14:00:54.000Z
+r_fake2,Governments should regulate the development of AI.,9599,Strongly disagree,2026-09-29T14:01:03.000Z
+r_fake2,Governments should regulate the development of AI.,1787,Agree,2026-09-29T14:01:12.000Z
+r_fake2,Governments should regulate the development of AI.,5764,Disagree,2026-09-29T14:01:21.000Z
+r_fake2,Governments should regulate the development of AI.,4801,Neutral,2026-09-29T14:01:30.000Z
+r_fake2,Governments should regulate the development of AI.,1055,Neutral,2026-09-29T14:01:39.000Z
+r_fake2,Governments should regulate the development of AI.,2464,Agree,2026-09-29T14:01:48.000Z
+r_fake2,Governments should regulate the development of AI.,6169,Neutral,2026-09-29T14:01:57.000Z
+r_fake2,Governments should regulate the development of AI.,8634,Disagree,2026-09-29T14:02:06.000Z
+r_fake2,Governments should regulate the development of AI.,2924,Strongly agree,2026-09-29T14:02:15.000Z
+r_fake2,Governments should regulate the development of AI.,5077,Disagree,2026-09-29T14:02:24.000Z
+r_fake2,Governments should regulate the development of AI.,9402,Neutral,2026-09-29T14:02:33.000Z
+r_fake2,Governments should regulate the development of AI.,9509,Neutral,2026-09-29T14:02:42.000Z
+r_fake2,Governments should regulate the development of AI.,1387,Disagree,2026-09-29T14:02:51.000Z
+r_fake2,Governments should regulate the development of AI.,2361,Agree,2026-09-29T14:03:00.000Z
+r_fake2,Governments should regulate the development of AI.,1370,Neutral,2026-09-29T14:03:09.000Z
+r_fake2,Governments should regulate the development of AI.,6466,Agree,2026-09-29T14:03:18.000Z
+r_fake2,Governments should regulate the development of AI.,4050,Agree,2026-09-29T14:03:27.000Z
+r_fake2,Governments should regulate the development of AI.,8766,Agree,2026-09-29T14:03:45.000Z
+r_fake2,Governments should regulate the development of AI.,3277,Disagree,2026-09-29T14:03:54.000Z
+r_fake2,Governments should regulate the development of AI.,4443,Neutral,2026-09-29T14:04:03.000Z
+r_fake3,Every college student should complete community service.,0457,Agree,2026-10-06T14:00:00.000Z
+r_fake3,Every college student should complete community service.,8267,Disagree,2026-10-06T14:00:09.000Z
+r_fake3,Every college student should complete community service.,0804,Neutral,2026-10-06T14:00:18.000Z
+r_fake3,Every college student should complete community service.,5557,Agree,2026-10-06T14:00:27.000Z
+r_fake3,Every college student should complete community service.,0809,Strongly agree,2026-10-06T14:00:36.000Z
+r_fake3,Every college student should complete community service.,7397,Neutral,2026-10-06T14:00:45.000Z
+r_fake3,Every college student should complete community service.,9537,Strongly agree,2026-10-06T14:00:54.000Z
+r_fake3,Every college student should complete community service.,9599,Neutral,2026-10-06T14:01:03.000Z
+r_fake3,Every college student should complete community service.,1787,Strongly disagree,2026-10-06T14:01:12.000Z
+r_fake3,Every college student should complete community service.,5764,Strongly disagree,2026-10-06T14:01:21.000Z
+r_fake3,Every college student should complete community service.,4801,Agree,2026-10-06T14:01:30.000Z
+r_fake3,Every college student should complete community service.,1055,Agree,2026-10-06T14:01:39.000Z
+r_fake3,Every college student should complete community service.,2464,Disagree,2026-10-06T14:01:48.000Z
+r_fake3,Every college student should complete community service.,6169,Agree,2026-10-06T14:01:57.000Z
+r_fake3,Every college student should complete community service.,8634,Disagree,2026-10-06T14:02:06.000Z
+r_fake3,Every college student should complete community service.,2924,Strongly disagree,2026-10-06T14:02:15.000Z
+r_fake3,Every college student should complete community service.,5077,Agree,2026-10-06T14:02:24.000Z
+r_fake3,Every college student should complete community service.,9402,Agree,2026-10-06T14:02:33.000Z
+r_fake3,Every college student should complete community service.,9509,Strongly disagree,2026-10-06T14:02:42.000Z
+r_fake3,Every college student should complete community service.,1387,Neutral,2026-10-06T14:02:51.000Z
+r_fake3,Every college student should complete community service.,2361,Disagree,2026-10-06T14:03:00.000Z
+r_fake3,Every college student should complete community service.,1370,Agree,2026-10-06T14:03:09.000Z
+r_fake3,Every college student should complete community service.,6466,Disagree,2026-10-06T14:03:18.000Z
+r_fake3,Every college student should complete community service.,4050,Disagree,2026-10-06T14:03:27.000Z
+r_fake3,Every college student should complete community service.,5988,Strongly agree,2026-10-06T14:03:36.000Z
+r_fake3,Every college student should complete community service.,3277,Neutral,2026-10-06T14:03:54.000Z
+r_fake3,Every college student should complete community service.,4443,Agree,2026-10-06T14:04:03.000Z
+r_fake4,Religion belongs in public life.,0457,Neutral,2026-10-13T14:00:00.000Z
+r_fake4,Religion belongs in public life.,8267,Agree,2026-10-13T14:00:09.000Z
+r_fake4,Religion belongs in public life.,0804,Neutral,2026-10-13T14:00:18.000Z
+r_fake4,Religion belongs in public life.,5557,Strongly agree,2026-10-13T14:00:27.000Z
+r_fake4,Religion belongs in public life.,0809,Neutral,2026-10-13T14:00:36.000Z
+r_fake4,Religion belongs in public life.,7397,Agree,2026-10-13T14:00:45.000Z
+r_fake4,Religion belongs in public life.,9537,Disagree,2026-10-13T14:00:54.000Z
+r_fake4,Religion belongs in public life.,9599,Strongly agree,2026-10-13T14:01:03.000Z
+r_fake4,Religion belongs in public life.,1787,Neutral,2026-10-13T14:01:12.000Z
+r_fake4,Religion belongs in public life.,5764,Neutral,2026-10-13T14:01:21.000Z
+r_fake4,Religion belongs in public life.,4801,Disagree,2026-10-13T14:01:30.000Z
+r_fake4,Religion belongs in public life.,1055,Agree,2026-10-13T14:01:39.000Z
+r_fake4,Religion belongs in public life.,2464,Neutral,2026-10-13T14:01:48.000Z
+r_fake4,Religion belongs in public life.,6169,Strongly agree,2026-10-13T14:01:57.000Z
+r_fake4,Religion belongs in public life.,2924,Disagree,2026-10-13T14:02:15.000Z
+r_fake4,Religion belongs in public life.,5077,Agree,2026-10-13T14:02:24.000Z
+r_fake4,Religion belongs in public life.,9402,Disagree,2026-10-13T14:02:33.000Z
+r_fake4,Religion belongs in public life.,9509,Disagree,2026-10-13T14:02:42.000Z
+r_fake4,Religion belongs in public life.,1387,Strongly agree,2026-10-13T14:02:51.000Z
+r_fake4,Religion belongs in public life.,2361,Agree,2026-10-13T14:03:00.000Z
+r_fake4,Religion belongs in public life.,1370,Strongly disagree,2026-10-13T14:03:09.000Z
+r_fake4,Religion belongs in public life.,6466,Strongly agree,2026-10-13T14:03:18.000Z
+r_fake4,Religion belongs in public life.,5988,Strongly agree,2026-10-13T14:03:36.000Z
+r_fake4,Religion belongs in public life.,8766,Strongly agree,2026-10-13T14:03:45.000Z
+r_fake4,Religion belongs in public life.,4443,Agree,2026-10-13T14:04:03.000Z
+r_fake5,I learn best when I study alone.,0457,Disagree,2026-10-20T14:00:00.000Z
+r_fake5,I learn best when I study alone.,8267,Agree,2026-10-20T14:00:09.000Z
+r_fake5,I learn best when I study alone.,0804,Disagree,2026-10-20T14:00:18.000Z
+r_fake5,I learn best when I study alone.,5557,Disagree,2026-10-20T14:00:27.000Z
+r_fake5,I learn best when I study alone.,0809,Strongly disagree,2026-10-20T14:00:36.000Z
+r_fake5,I learn best when I study alone.,7397,Agree,2026-10-20T14:00:45.000Z
+r_fake5,I learn best when I study alone.,9537,Agree,2026-10-20T14:00:54.000Z
+r_fake5,I learn best when I study alone.,9599,Neutral,2026-10-20T14:01:03.000Z
+r_fake5,I learn best when I study alone.,1787,Strongly agree,2026-10-20T14:01:12.000Z
+r_fake5,I learn best when I study alone.,5764,Strongly agree,2026-10-20T14:01:21.000Z
+r_fake5,I learn best when I study alone.,4801,Neutral,2026-10-20T14:01:30.000Z
+r_fake5,I learn best when I study alone.,1055,Disagree,2026-10-20T14:01:39.000Z
+r_fake5,I learn best when I study alone.,6169,Strongly disagree,2026-10-20T14:01:57.000Z
+r_fake5,I learn best when I study alone.,8634,Neutral,2026-10-20T14:02:06.000Z
+r_fake5,I learn best when I study alone.,2924,Strongly agree,2026-10-20T14:02:15.000Z
+r_fake5,I learn best when I study alone.,5077,Strongly disagree,2026-10-20T14:02:24.000Z
+r_fake5,I learn best when I study alone.,9402,Strongly agree,2026-10-20T14:02:33.000Z
+r_fake5,I learn best when I study alone.,9509,Agree,2026-10-20T14:02:42.000Z
+r_fake5,I learn best when I study alone.,1387,Disagree,2026-10-20T14:02:51.000Z
+r_fake5,I learn best when I study alone.,2361,Strongly agree,2026-10-20T14:03:00.000Z
+r_fake5,I learn best when I study alone.,6466,Disagree,2026-10-20T14:03:18.000Z
+r_fake5,I learn best when I study alone.,4050,Agree,2026-10-20T14:03:27.000Z
+r_fake5,I learn best when I study alone.,8766,Neutral,2026-10-20T14:03:45.000Z
+r_fake5,I learn best when I study alone.,3277,Agree,2026-10-20T14:03:54.000Z
+r_fake5,I learn best when I study alone.,4443,Disagree,2026-10-20T14:04:03.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,0457,Agree,2026-10-27T14:00:00.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,8267,Agree,2026-10-27T14:00:09.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,0804,Strongly disagree,2026-10-27T14:00:18.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,5557,Strongly agree,2026-10-27T14:00:27.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,0809,Agree,2026-10-27T14:00:36.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,7397,Disagree,2026-10-27T14:00:45.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,9537,Neutral,2026-10-27T14:00:54.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,9599,Neutral,2026-10-27T14:01:03.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,1787,Strongly disagree,2026-10-27T14:01:12.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,5764,Strongly agree,2026-10-27T14:01:21.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,4801,Neutral,2026-10-27T14:01:30.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,2464,Disagree,2026-10-27T14:01:48.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,6169,Disagree,2026-10-27T14:01:57.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,8634,Neutral,2026-10-27T14:02:06.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,2924,Disagree,2026-10-27T14:02:15.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,5077,Neutral,2026-10-27T14:02:24.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,9402,Disagree,2026-10-27T14:02:33.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,2361,Agree,2026-10-27T14:03:00.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,1370,Strongly agree,2026-10-27T14:03:09.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,6466,Neutral,2026-10-27T14:03:18.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,4050,Disagree,2026-10-27T14:03:27.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,5988,Neutral,2026-10-27T14:03:36.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,8766,Agree,2026-10-27T14:03:45.000Z
+r_fake6,Colleges should teach everyone how to use AI responsibly.,4443,Disagree,2026-10-27T14:04:03.000Z

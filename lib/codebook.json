@@ -1,0 +1,5659 @@
+{
+ "generatedFrom": "River_Way_Exploration_First-Year_Student_Survey.qsf",
+ "surveyName": "FYSE100-19 River Way Exploration First-Year Student Survey",
+ "sections": [
+  {
+   "id": "family",
+   "label": "Family & Personal Background",
+   "sensitive": false
+  },
+  {
+   "id": "life",
+   "label": "Life Experiences & Values",
+   "sensitive": false
+  },
+  {
+   "id": "academic",
+   "label": "Academic Background, Motivation & Confidence",
+   "sensitive": false
+  },
+  {
+   "id": "ai",
+   "label": "Generative AI Use & Attitudes",
+   "sensitive": false
+  },
+  {
+   "id": "media",
+   "label": "Media & Information Habits",
+   "sensitive": false
+  },
+  {
+   "id": "political",
+   "label": "Political Views & Civic Engagement",
+   "sensitive": true
+  },
+  {
+   "id": "religious",
+   "label": "Religious & Spiritual Background",
+   "sensitive": true
+  }
+ ],
+ "variables": [
+  {
+   "key": "FAM1",
+   "kind": "nominal",
+   "section": "family",
+   "tag": "FAM1",
+   "column": "FAM1",
+   "label": "First in family to attend a 4-year college",
+   "prefix": "First in family to attend a 4-year college: ",
+   "question": "Are you the first person in your immediate family to attend a four-year college?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Yes",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "No",
+     "index": 1
+    },
+    {
+     "code": "3",
+     "label": "Unsure",
+     "index": 2
+    }
+   ]
+  },
+  {
+   "key": "FAM2",
+   "kind": "ordinal",
+   "section": "family",
+   "tag": "FAM2",
+   "column": "FAM2",
+   "label": "Parents’ education level",
+   "question": "What is the highest level of education completed by your parent(s)/guardian(s)?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Some high school or less",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "High school graduate or GED",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Some college",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "College degree",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Some graduate school",
+     "value": 5
+    },
+    {
+     "code": "6",
+     "label": "Graduate or professional degree",
+     "value": 6
+    }
+   ]
+  },
+  {
+   "key": "FAM3",
+   "kind": "ordinal",
+   "section": "family",
+   "tag": "FAM3",
+   "column": "FAM3",
+   "label": "Number of older siblings",
+   "question": "How many older siblings do you have?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "0",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "1",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "2",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "3",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "4",
+     "value": 5
+    },
+    {
+     "code": "6",
+     "label": "5",
+     "value": 6
+    },
+    {
+     "code": "7",
+     "label": "6",
+     "value": 7
+    },
+    {
+     "code": "8",
+     "label": "More than six",
+     "value": 8
+    }
+   ]
+  },
+  {
+   "key": "FAM4",
+   "kind": "ordinal",
+   "section": "family",
+   "tag": "FAM4",
+   "column": "FAM4",
+   "label": "Number of younger siblings",
+   "question": "How many younger siblings do you have?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "0",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "1",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "2",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "3",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "4",
+     "value": 5
+    },
+    {
+     "code": "6",
+     "label": "5",
+     "value": 6
+    },
+    {
+     "code": "7",
+     "label": "6",
+     "value": 7
+    },
+    {
+     "code": "8",
+     "label": "More than six",
+     "value": 8
+    }
+   ]
+  },
+  {
+   "key": "FAM5",
+   "kind": "nominal",
+   "section": "family",
+   "tag": "FAM5",
+   "column": "FAM5",
+   "label": "Household type",
+   "prefix": "Household type: ",
+   "question": "Growing up, my household was best described as",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Two-parent",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "Single-parent",
+     "index": 1
+    },
+    {
+     "code": "3",
+     "label": "Multigenerational",
+     "index": 2
+    },
+    {
+     "code": "4",
+     "label": "Guardian- or relative-led",
+     "index": 3
+    },
+    {
+     "code": "5",
+     "label": "Other",
+     "index": 4
+    }
+   ]
+  },
+  {
+   "key": "FAM6",
+   "kind": "nominal",
+   "section": "family",
+   "tag": "FAM6",
+   "column": "FAM6",
+   "label": "Grew up in",
+   "prefix": "Grew up in: ",
+   "question": "I grew up primarily in a",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Rural area",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "Small town",
+     "index": 1
+    },
+    {
+     "code": "3",
+     "label": "Suburb",
+     "index": 2
+    },
+    {
+     "code": "4",
+     "label": "Mid-sized city",
+     "index": 3
+    },
+    {
+     "code": "5",
+     "label": "Large city",
+     "index": 4
+    }
+   ]
+  },
+  {
+   "key": "FAM7",
+   "kind": "ordinal",
+   "section": "family",
+   "tag": "FAM7",
+   "column": "FAM7",
+   "label": "Family moves during K-12",
+   "question": "How many times did your family move to a new home during your K-12 years?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "0",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "1-2",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "3-4",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "5 or more",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "FAM8",
+   "kind": "nominal",
+   "section": "family",
+   "tag": "FAM8",
+   "column": "FAM8",
+   "label": "English spoken at home",
+   "prefix": "English spoken at home: ",
+   "question": "Is English the primary language spoken in your home?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Yes",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "No",
+     "index": 1
+    },
+    {
+     "code": "3",
+     "label": "A mix of English and another language",
+     "index": 2
+    }
+   ]
+  },
+  {
+   "key": "FAM_AGREE_1",
+   "kind": "ordinal",
+   "section": "family",
+   "tag": "FAM_AGREE",
+   "column": "FAM_AGREE_1",
+   "label": "My family strongly encouraged me to attend college.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "FAM_AGREE_2",
+   "kind": "ordinal",
+   "section": "family",
+   "tag": "FAM_AGREE",
+   "column": "FAM_AGREE_2",
+   "label": "My family and I frequently discuss current events together.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "FAM_AGREE_3",
+   "kind": "ordinal",
+   "section": "family",
+   "tag": "FAM_AGREE",
+   "column": "FAM_AGREE_3",
+   "label": "I feel a strong sense of responsibility to support my family financially or emotionally while in college.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "FAM_AGREE_4",
+   "kind": "ordinal",
+   "section": "family",
+   "tag": "FAM_AGREE",
+   "column": "FAM_AGREE_4",
+   "label": "I expect to stay in close, regular contact with my family during college.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "FAM_AGREE_5",
+   "kind": "ordinal",
+   "section": "family",
+   "tag": "FAM_AGREE",
+   "column": "FAM_AGREE_5",
+   "label": "I expect to stay in close, regular contact with my friends from home during college.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "FAM_AGREE_6",
+   "kind": "ordinal",
+   "section": "family",
+   "tag": "FAM_AGREE",
+   "column": "FAM_AGREE_6",
+   "label": "I have pets at home that I expect to miss significantly during college.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "LIFE1",
+   "kind": "nominal",
+   "section": "life",
+   "tag": "LIFE1",
+   "column": "LIFE1",
+   "label": "Job before college",
+   "prefix": "Job before college: ",
+   "question": "Have you held a part-time or full-time job before starting college?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Yes, currently",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "Yes, in the past",
+     "index": 1
+    },
+    {
+     "code": "3",
+     "label": "No",
+     "index": 2
+    }
+   ]
+  },
+  {
+   "key": "LIFE2",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "LIFE2",
+   "column": "LIFE2",
+   "label": "Travel outside home state/region",
+   "question": "Have you traveled outside your home state/region?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Once or twice",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Several times",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Extensively",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "LIFE3",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "LIFE3",
+   "column": "LIFE3",
+   "label": "Travel outside home country",
+   "question": "Have you traveled outside your home country?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Once or twice",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Several times",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Extensively",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "LIFE4",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "LIFE4",
+   "column": "LIFE4",
+   "label": "Volunteer/community service experience",
+   "question": "How would you describe your volunteer/community service experience before college?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "None",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "A little",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Moderate",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Extensive",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "LIFE_AGREE_1",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "LIFE_AGREE",
+   "column": "LIFE_AGREE_1",
+   "label": "I have experienced a significant setback or obstacle (personal, medical, academic, or otherwise) that shaped who I am today.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "LIFE_AGREE_2",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "LIFE_AGREE",
+   "column": "LIFE_AGREE_2",
+   "label": "I have taken on leadership roles (e.g., team captain, club officer, shift lead) before college.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "LIFE_AGREE_3",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "LIFE_AGREE",
+   "column": "LIFE_AGREE_3",
+   "label": "I have significant experience caring for another person (e.g., babysitting young children, elder care for a grandparent).",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "LIFE_AGREE_4",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "LIFE_AGREE",
+   "column": "LIFE_AGREE_4",
+   "label": "I have significant experience caring for animals (e.g., pets, livestock).",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "LIFE_AGREE_5",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "LIFE_AGREE",
+   "column": "LIFE_AGREE_5",
+   "label": "I have had to advocate for myself in a school, work, or institutional setting.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "LIFE_AGREE_6",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "LIFE_AGREE",
+   "column": "LIFE_AGREE_6",
+   "label": "I generally adapt quickly to new social situations.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "LIFE5",
+   "kind": "nominal",
+   "section": "life",
+   "tag": "LIFE5",
+   "column": "LIFE5",
+   "label": "First time living away from home",
+   "prefix": "First time living away from home: ",
+   "question": "This is my first time living away from home for an extended period.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Yes",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "No",
+     "index": 1
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_1",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_1",
+   "label": "Importance to me: Becoming an authority or expert in my chosen field",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_2",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_2",
+   "label": "Importance to me: Being recognized by others for my contributions or achievements",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_3",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_3",
+   "label": "Importance to me: Helping others who are in difficulty",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_4",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_4",
+   "label": "Importance to me: Raising a family",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_5",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_5",
+   "label": "Importance to me: Being financially well-off",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_6",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_6",
+   "label": "Importance to me: Developing a meaningful philosophy of life or personal worldview",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_7",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_7",
+   "label": "Importance to me: Becoming a leader in my community",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_8",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_8",
+   "label": "Importance to me: Influencing social attitudes or values",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_9",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_9",
+   "label": "Importance to me: Influencing government or the political process",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_10",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_10",
+   "label": "Importance to me: Creating something original (art, writing, music, invention, etc.)",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_11",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_11",
+   "label": "Importance to me: Starting or running my own business",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_12",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_12",
+   "label": "Importance to me: Making a scientific or scholarly contribution to my field",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_13",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_13",
+   "label": "Importance to me: Participating in a community action or advocacy program",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_14",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_14",
+   "label": "Importance to me: Promoting understanding between different racial or cultural groups",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_15",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_15",
+   "label": "Importance to me: Improving my understanding of other countries and cultures",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_16",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_16",
+   "label": "Importance to me: Staying informed about political and civic affairs",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_17",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_17",
+   "label": "Importance to me: Integrating spirituality or faith into my daily life",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_18",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_18",
+   "label": "Importance to me: Living an adventurous, varied life",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_19",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_19",
+   "label": "Importance to me: Achieving a stable, predictable life",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "VALUES_IMPORTANCE_20",
+   "kind": "ordinal",
+   "section": "life",
+   "tag": "VALUES_IMPORTANCE",
+   "column": "VALUES_IMPORTANCE_20",
+   "label": "Importance to me: Protecting the environment",
+   "question": "How important is each of the following to you, personally?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Essential",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "ACAD1",
+   "kind": "nominal",
+   "section": "academic",
+   "tag": "ACAD1",
+   "column": "ACAD1",
+   "label": "High school type",
+   "prefix": "High school type: ",
+   "question": "What best describes your high school?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Public (non-charter/magnet)",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "Public charter or magnet",
+     "index": 1
+    },
+    {
+     "code": "3",
+     "label": "Private, religious",
+     "index": 2
+    },
+    {
+     "code": "4",
+     "label": "Private, independent college-prep",
+     "index": 3
+    },
+    {
+     "code": "5",
+     "label": "Home school",
+     "index": 4
+    },
+    {
+     "code": "6",
+     "label": "Other",
+     "index": 5
+    }
+   ]
+  },
+  {
+   "key": "ACAD_SELFRATE_1",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "ACAD_SELFRATE",
+   "column": "ACAD_SELFRATE_1",
+   "label": "Self-rated vs peers: Overall academic ability",
+   "question": "Compared with peers your age, how would you rate yourself in each area?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "ACAD_SELFRATE_2",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "ACAD_SELFRATE",
+   "column": "ACAD_SELFRATE_2",
+   "label": "Self-rated vs peers: Writing ability",
+   "question": "Compared with peers your age, how would you rate yourself in each area?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "ACAD_SELFRATE_3",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "ACAD_SELFRATE",
+   "column": "ACAD_SELFRATE_3",
+   "label": "Self-rated vs peers: Mathematical ability",
+   "question": "Compared with peers your age, how would you rate yourself in each area?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "ACAD_SELFRATE_4",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "ACAD_SELFRATE",
+   "column": "ACAD_SELFRATE_4",
+   "label": "Self-rated vs peers: Self-confidence in academic settings",
+   "question": "Compared with peers your age, how would you rate yourself in each area?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "ACAD_FREQ_1",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "ACAD_FREQ",
+   "column": "ACAD_FREQ_1",
+   "label": "Past year: Felt bored in class",
+   "question": "In the past year, how often did you do each of the following?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not at All",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Occasionally",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Frequently",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "ACAD_FREQ_2",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "ACAD_FREQ",
+   "column": "ACAD_FREQ_2",
+   "label": "Past year: Studied with other students",
+   "question": "In the past year, how often did you do each of the following?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not at All",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Occasionally",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Frequently",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "ACAD_FREQ_3",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "ACAD_FREQ",
+   "column": "ACAD_FREQ_3",
+   "label": "Past year: Tutored another student",
+   "question": "In the past year, how often did you do each of the following?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not at All",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Occasionally",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Frequently",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "ACAD_FREQ_4",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "ACAD_FREQ",
+   "column": "ACAD_FREQ_4",
+   "label": "Past year: Asked a teacher for help or advice outside of class",
+   "question": "In the past year, how often did you do each of the following?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not at All",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Occasionally",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Frequently",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "COLLEGE_REASONS_1",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "COLLEGE_REASONS",
+   "column": "COLLEGE_REASONS_1",
+   "label": "Reason for college: To improve my job prospects after graduation",
+   "question": "In deciding to go to college, how important was each of the following reasons to you?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "COLLEGE_REASONS_2",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "COLLEGE_REASONS",
+   "column": "COLLEGE_REASONS_2",
+   "label": "Reason for college: To gain a broad, general education and appreciation of ideas",
+   "question": "In deciding to go to college, how important was each of the following reasons to you?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "COLLEGE_REASONS_3",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "COLLEGE_REASONS",
+   "column": "COLLEGE_REASONS_3",
+   "label": "Reason for college: To become a more well-rounded, cultured person",
+   "question": "In deciding to go to college, how important was each of the following reasons to you?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "COLLEGE_REASONS_4",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "COLLEGE_REASONS",
+   "column": "COLLEGE_REASONS_4",
+   "label": "Reason for college: To increase my long-term earning potential",
+   "question": "In deciding to go to college, how important was each of the following reasons to you?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "COLLEGE_REASONS_5",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "COLLEGE_REASONS",
+   "column": "COLLEGE_REASONS_5",
+   "label": "Reason for college: To learn more about subjects that genuinely interest me",
+   "question": "In deciding to go to college, how important was each of the following reasons to you?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "COLLEGE_REASONS_6",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "COLLEGE_REASONS",
+   "column": "COLLEGE_REASONS_6",
+   "label": "Reason for college: To get specific training for a particular career",
+   "question": "In deciding to go to college, how important was each of the following reasons to you?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "COLLEGE_REASONS_7",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "COLLEGE_REASONS",
+   "column": "COLLEGE_REASONS_7",
+   "label": "Reason for college: To prepare for graduate or professional school",
+   "question": "In deciding to go to college, how important was each of the following reasons to you?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "COLLEGE_REASONS_8",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "COLLEGE_REASONS",
+   "column": "COLLEGE_REASONS_8",
+   "label": "Reason for college: Because my family wanted or expected me to go",
+   "question": "In deciding to go to college, how important was each of the following reasons to you?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "COLLEGE_REASONS_9",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "COLLEGE_REASONS",
+   "column": "COLLEGE_REASONS_9",
+   "label": "Reason for college: To meet new people and build a social network",
+   "question": "In deciding to go to college, how important was each of the following reasons to you?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "COLLEGE_REASONS_10",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "COLLEGE_REASONS",
+   "column": "COLLEGE_REASONS_10",
+   "label": "Reason for college: To gain independence from my family",
+   "question": "In deciding to go to college, how important was each of the following reasons to you?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not Important",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat Important",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very Important",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "CONFIDENCE_1",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "CONFIDENCE",
+   "column": "CONFIDENCE_1",
+   "label": "Confident I can: Generate a clear, answerable research question on a topic you care about",
+   "question": "How confident are you that, in college, you will be able to...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not at All",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Absolutely",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "CONFIDENCE_2",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "CONFIDENCE",
+   "column": "CONFIDENCE_2",
+   "label": "Confident I can: Evaluate the quality or reliability of information you encounter",
+   "question": "How confident are you that, in college, you will be able to...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not at All",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Absolutely",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "CONFIDENCE_3",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "CONFIDENCE",
+   "column": "CONFIDENCE_3",
+   "label": "Confident I can: Support your opinions with a logical argument",
+   "question": "How confident are you that, in college, you will be able to...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not at All",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Absolutely",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "CONFIDENCE_4",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "CONFIDENCE",
+   "column": "CONFIDENCE_4",
+   "label": "Confident I can: Explain a complex idea clearly to someone unfamiliar with it",
+   "question": "How confident are you that, in college, you will be able to...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not at All",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Absolutely",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "CONFIDENCE_5",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "CONFIDENCE",
+   "column": "CONFIDENCE_5",
+   "label": "Confident I can: Manage your time effectively without reminders from others",
+   "question": "How confident are you that, in college, you will be able to...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not at All",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Absolutely",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "CONFIDENCE_6",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "CONFIDENCE",
+   "column": "CONFIDENCE_6",
+   "label": "Confident I can: Ask for help when you are struggling academically",
+   "question": "How confident are you that, in college, you will be able to...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not at All",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Very",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Absolutely",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "HABITS_FREQ_1",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "HABITS_FREQ",
+   "column": "HABITS_FREQ_1",
+   "label": "HS habit: Ask questions or contribute to class discussions",
+   "question": "How often, during your last year of high school, did you...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Sometimes",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Often",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Often",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "HABITS_FREQ_2",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "HABITS_FREQ",
+   "column": "HABITS_FREQ_2",
+   "label": "HS habit: Come to class without completing the assigned reading",
+   "question": "How often, during your last year of high school, did you...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Sometimes",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Often",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Often",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "HABITS_FREQ_3",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "HABITS_FREQ",
+   "column": "HABITS_FREQ_3",
+   "label": "HS habit: Revise a paper or assignment more than once before turning it in",
+   "question": "How often, during your last year of high school, did you...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Sometimes",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Often",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Often",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "HABITS_FREQ_4",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "HABITS_FREQ",
+   "column": "HABITS_FREQ_4",
+   "label": "HS habit: Explain course material to another student",
+   "question": "How often, during your last year of high school, did you...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Sometimes",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Often",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Often",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "HABITS_FREQ_5",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "HABITS_FREQ",
+   "column": "HABITS_FREQ_5",
+   "label": "HS habit: Work with classmates on a project or assignment",
+   "question": "How often, during your last year of high school, did you...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Sometimes",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Often",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Often",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "HABITS_FREQ_6",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "HABITS_FREQ",
+   "column": "HABITS_FREQ_6",
+   "label": "HS habit: Discuss ideas from your coursework with people outside of class",
+   "question": "How often, during your last year of high school, did you...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Sometimes",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Often",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Often",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "TRAITS_SELFRATE_1",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TRAITS_SELFRATE",
+   "column": "TRAITS_SELFRATE_1",
+   "label": "Self-rated trait: Drive to achieve",
+   "question": "Rate yourself on each trait compared with the average person your age.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "TRAITS_SELFRATE_2",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TRAITS_SELFRATE",
+   "column": "TRAITS_SELFRATE_2",
+   "label": "Self-rated trait: Emotional health/resilience",
+   "question": "Rate yourself on each trait compared with the average person your age.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "TRAITS_SELFRATE_3",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TRAITS_SELFRATE",
+   "column": "TRAITS_SELFRATE_3",
+   "label": "Self-rated trait: Leadership ability",
+   "question": "Rate yourself on each trait compared with the average person your age.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "TRAITS_SELFRATE_4",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TRAITS_SELFRATE",
+   "column": "TRAITS_SELFRATE_4",
+   "label": "Self-rated trait: Public speaking ability",
+   "question": "Rate yourself on each trait compared with the average person your age.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "TRAITS_SELFRATE_5",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TRAITS_SELFRATE",
+   "column": "TRAITS_SELFRATE_5",
+   "label": "Self-rated trait: Risk-taking",
+   "question": "Rate yourself on each trait compared with the average person your age.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "TRAITS_SELFRATE_6",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TRAITS_SELFRATE",
+   "column": "TRAITS_SELFRATE_6",
+   "label": "Self-rated trait: Ability to see the world from someone else's perspective",
+   "question": "Rate yourself on each trait compared with the average person your age.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "TRAITS_SELFRATE_7",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TRAITS_SELFRATE",
+   "column": "TRAITS_SELFRATE_7",
+   "label": "Self-rated trait: Ability to work cooperatively with people different from yourself",
+   "question": "Rate yourself on each trait compared with the average person your age.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "TRAITS_SELFRATE_8",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TRAITS_SELFRATE",
+   "column": "TRAITS_SELFRATE_8",
+   "label": "Self-rated trait: Openness to having my own views challenged",
+   "question": "Rate yourself on each trait compared with the average person your age.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "TRAITS_SELFRATE_9",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TRAITS_SELFRATE",
+   "column": "TRAITS_SELFRATE_9",
+   "label": "Self-rated trait: Critical thinking skills",
+   "question": "Rate yourself on each trait compared with the average person your age.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "TRAITS_SELFRATE_10",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TRAITS_SELFRATE",
+   "column": "TRAITS_SELFRATE_10",
+   "label": "Self-rated trait: Ability to manage my time effectively",
+   "question": "Rate yourself on each trait compared with the average person your age.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "TRAITS_SELFRATE_11",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TRAITS_SELFRATE",
+   "column": "TRAITS_SELFRATE_11",
+   "label": "Self-rated trait: Ability to discuss and negotiate a controversial issue calmly",
+   "question": "Rate yourself on each trait compared with the average person your age.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "TRAITS_SELFRATE_12",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TRAITS_SELFRATE",
+   "column": "TRAITS_SELFRATE_12",
+   "label": "Self-rated trait: Tolerance of people with beliefs different from my own",
+   "question": "Rate yourself on each trait compared with the average person your age.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Lowest 10%",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Below Average",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Average",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Above Average",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Highest 10%",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "EXPECT_CHANCE_1",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "EXPECT_CHANCE",
+   "column": "EXPECT_CHANCE_1",
+   "label": "Chance I will: Change your intended major",
+   "question": "What is your best guess as to the chances that you will...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "No Chance",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Very Little Chance",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Some Chance",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Good Chance",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "EXPECT_CHANCE_2",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "EXPECT_CHANCE",
+   "column": "EXPECT_CHANCE_2",
+   "label": "Chance I will: Work on a professor's research project",
+   "question": "What is your best guess as to the chances that you will...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "No Chance",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Very Little Chance",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Some Chance",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Good Chance",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "EXPECT_CHANCE_3",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "EXPECT_CHANCE",
+   "column": "EXPECT_CHANCE_3",
+   "label": "Chance I will: Study abroad at some point",
+   "question": "What is your best guess as to the chances that you will...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "No Chance",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Very Little Chance",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Some Chance",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Good Chance",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "EXPECT_CHANCE_4",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "EXPECT_CHANCE",
+   "column": "EXPECT_CHANCE_4",
+   "label": "Chance I will: Join a club, team, or student organization",
+   "question": "What is your best guess as to the chances that you will...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "No Chance",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Very Little Chance",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Some Chance",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Good Chance",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "EXPECT_CHANCE_5",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "EXPECT_CHANCE",
+   "column": "EXPECT_CHANCE_5",
+   "label": "Chance I will: Participate in student government",
+   "question": "What is your best guess as to the chances that you will...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "No Chance",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Very Little Chance",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Some Chance",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Good Chance",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "EXPECT_CHANCE_6",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "EXPECT_CHANCE",
+   "column": "EXPECT_CHANCE_6",
+   "label": "Chance I will: Get tutoring help in a specific course",
+   "question": "What is your best guess as to the chances that you will...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "No Chance",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Very Little Chance",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Some Chance",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Good Chance",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "EXPECT_CHANCE_7",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "EXPECT_CHANCE",
+   "column": "EXPECT_CHANCE_7",
+   "label": "Chance I will: Take a leave of absence at some point",
+   "question": "What is your best guess as to the chances that you will...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "No Chance",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Very Little Chance",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Some Chance",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Good Chance",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "EXPECT_CHANCE_8",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "EXPECT_CHANCE",
+   "column": "EXPECT_CHANCE_8",
+   "label": "Chance I will: Vote in a local, state, or national election while in college",
+   "question": "What is your best guess as to the chances that you will...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "No Chance",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Very Little Chance",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Some Chance",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Good Chance",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "EXPECT_CHANCE_9",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "EXPECT_CHANCE",
+   "column": "EXPECT_CHANCE_9",
+   "label": "Chance I will: Participate in volunteer or community service work",
+   "question": "What is your best guess as to the chances that you will...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "No Chance",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Very Little Chance",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Some Chance",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Good Chance",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "EXPECT_CHANCE_10",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "EXPECT_CHANCE",
+   "column": "EXPECT_CHANCE_10",
+   "label": "Chance I will: Seek out academic or personal counseling if you need it",
+   "question": "What is your best guess as to the chances that you will...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "No Chance",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Very Little Chance",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Some Chance",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Good Chance",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "TIME_USE_1",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TIME_USE",
+   "column": "TIME_USE_1",
+   "label": "Weekly time: Studying or doing homework",
+   "question": "In a typical week during your first year of college, how much time do you expect to spend...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "None",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Less than 5 hrs",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "5-10 hrs",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "11-15 hrs",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "16-20 hrs",
+     "value": 5
+    },
+    {
+     "code": "6",
+     "label": "More than 20 hrs",
+     "value": 6
+    }
+   ]
+  },
+  {
+   "key": "TIME_USE_2",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TIME_USE",
+   "column": "TIME_USE_2",
+   "label": "Weekly time: Working at a paid job",
+   "question": "In a typical week during your first year of college, how much time do you expect to spend...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "None",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Less than 5 hrs",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "5-10 hrs",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "11-15 hrs",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "16-20 hrs",
+     "value": 5
+    },
+    {
+     "code": "6",
+     "label": "More than 20 hrs",
+     "value": 6
+    }
+   ]
+  },
+  {
+   "key": "TIME_USE_3",
+   "kind": "ordinal",
+   "section": "academic",
+   "tag": "TIME_USE",
+   "column": "TIME_USE_3",
+   "label": "Weekly time: Participating in clubs, teams, or student organizations",
+   "question": "In a typical week during your first year of college, how much time do you expect to spend...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "None",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Less than 5 hrs",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "5-10 hrs",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "11-15 hrs",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "16-20 hrs",
+     "value": 5
+    },
+    {
+     "code": "6",
+     "label": "More than 20 hrs",
+     "value": 6
+    }
+   ]
+  },
+  {
+   "key": "Q55",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q55",
+   "column": "Q55",
+   "label": "Uses generative AI for schoolwork (frequency)",
+   "question": "How often do you currently use generative AI tools (e.g., ChatGPT, Gemini, Copilot, Claude) for schoolwork?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Rarely",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Sometimes",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Often",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Very Often",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "Q56",
+   "kind": "nominal",
+   "section": "ai",
+   "tag": "Q56",
+   "column": "Q56",
+   "label": "Generative AI tool used",
+   "prefix": "Generative AI tool used: ",
+   "question": "Which generative AI tools have you used, for any purpose?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "ChatGPT",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "Google Gemini",
+     "index": 1
+    },
+    {
+     "code": "3",
+     "label": "Microsoft CoPilot",
+     "index": 2
+    },
+    {
+     "code": "4",
+     "label": "Claude",
+     "index": 3
+    },
+    {
+     "code": "5",
+     "label": "Another AI writing, coding, or video tool",
+     "index": 4
+    },
+    {
+     "code": "6",
+     "label": "I have not used any",
+     "index": 5
+    }
+   ]
+  },
+  {
+   "key": "Q57",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q57",
+   "column": "Q57",
+   "label": "Self-rated generative AI skill",
+   "question": "How would you describe your skill level at using generative AI tools effectively (e.g., writing prompts that get useful results)?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "None/Novice",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Beginner",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Intermediate",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Advanced",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Expert",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "Q58_1",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q58",
+   "column": "Q58_1",
+   "label": "AI OK for: Brainstorming ideas or topics",
+   "question": "For each of the following, is it OK to use a generative AI tool without it counting as academic dishonesty?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never OK",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "OK only if I disclose it to the instructor",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "OK without needing to disclose it",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Not sure",
+     "value": null
+    }
+   ]
+  },
+  {
+   "key": "Q58_2",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q58",
+   "column": "Q58_2",
+   "label": "AI OK for: Outlining or organizing an assignment",
+   "question": "For each of the following, is it OK to use a generative AI tool without it counting as academic dishonesty?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never OK",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "OK only if I disclose it to the instructor",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "OK without needing to disclose it",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Not sure",
+     "value": null
+    }
+   ]
+  },
+  {
+   "key": "Q58_3",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q58",
+   "column": "Q58_3",
+   "label": "AI OK for: Checking grammar, spelling, or style",
+   "question": "For each of the following, is it OK to use a generative AI tool without it counting as academic dishonesty?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never OK",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "OK only if I disclose it to the instructor",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "OK without needing to disclose it",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Not sure",
+     "value": null
+    }
+   ]
+  },
+  {
+   "key": "Q58_4",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q58",
+   "column": "Q58_4",
+   "label": "AI OK for: Explaining a concept you don't understand",
+   "question": "For each of the following, is it OK to use a generative AI tool without it counting as academic dishonesty?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never OK",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "OK only if I disclose it to the instructor",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "OK without needing to disclose it",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Not sure",
+     "value": null
+    }
+   ]
+  },
+  {
+   "key": "Q58_5",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q58",
+   "column": "Q58_5",
+   "label": "AI OK for: Summarizing an assigned reading",
+   "question": "For each of the following, is it OK to use a generative AI tool without it counting as academic dishonesty?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never OK",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "OK only if I disclose it to the instructor",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "OK without needing to disclose it",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Not sure",
+     "value": null
+    }
+   ]
+  },
+  {
+   "key": "Q58_6",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q58",
+   "column": "Q58_6",
+   "label": "AI OK for: Solving homework or problem-set questions",
+   "question": "For each of the following, is it OK to use a generative AI tool without it counting as academic dishonesty?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never OK",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "OK only if I disclose it to the instructor",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "OK without needing to disclose it",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Not sure",
+     "value": null
+    }
+   ]
+  },
+  {
+   "key": "Q58_7",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q58",
+   "column": "Q58_7",
+   "label": "AI OK for: Generating a full first draft of a paper",
+   "question": "For each of the following, is it OK to use a generative AI tool without it counting as academic dishonesty?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never OK",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "OK only if I disclose it to the instructor",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "OK without needing to disclose it",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Not sure",
+     "value": null
+    }
+   ]
+  },
+  {
+   "key": "Q58_8",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q58",
+   "column": "Q58_8",
+   "label": "AI OK for: Studying or generating practice quiz questions",
+   "question": "For each of the following, is it OK to use a generative AI tool without it counting as academic dishonesty?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never OK",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "OK only if I disclose it to the instructor",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "OK without needing to disclose it",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Not sure",
+     "value": null
+    }
+   ]
+  },
+  {
+   "key": "Q58_9",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q58",
+   "column": "Q58_9",
+   "label": "AI OK for: Generating responses to discussions or other short writing assignments",
+   "question": "For each of the following, is it OK to use a generative AI tool without it counting as academic dishonesty?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never OK",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "OK only if I disclose it to the instructor",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "OK without needing to disclose it",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Not sure",
+     "value": null
+    }
+   ]
+  },
+  {
+   "key": "Q59_1",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q59",
+   "column": "Q59_1",
+   "label": "Using AI tools improves the quality of my work.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "disagree",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "agree",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "strongly agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "Q59_2",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q59",
+   "column": "Q59_2",
+   "label": "Relying on AI tools will weaken my own skills over time.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "disagree",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "agree",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "strongly agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "Q59_3",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q59",
+   "column": "Q59_3",
+   "label": "I generally trust AI-generated information to be accurate.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "disagree",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "agree",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "strongly agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "Q59_4",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q59",
+   "column": "Q59_4",
+   "label": "I am concerned about AI systems making decisions that affect people's lives (e.g., hiring, lending, healthcare).",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "disagree",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "agree",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "strongly agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "Q59_5",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q59",
+   "column": "Q59_5",
+   "label": "The overall benefits of AI development outweigh its risks.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "disagree",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "agree",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "strongly agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "Q59_6",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q59",
+   "column": "Q59_6",
+   "label": "AI will eliminate more jobs than it creates.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "disagree",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "agree",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "strongly agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "Q59_7",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q59",
+   "column": "Q59_7",
+   "label": "Colleges should actively teach students how to use AI tools responsibly.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "disagree",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "agree",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "strongly agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "Q59_8",
+   "kind": "ordinal",
+   "section": "ai",
+   "tag": "Q59",
+   "column": "Q59_8",
+   "label": "Government regulation of AI development is necessary to protect society.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "disagree",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "agree",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "strongly agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "MEDIA1_1",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA1",
+   "column": "MEDIA1_1",
+   "label": "News source: Social media",
+   "question": "What news sources do you regularly consult?",
+   "choice": "Social media",
+   "choiceCode": "1"
+  },
+  {
+   "key": "MEDIA1_2",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA1",
+   "column": "MEDIA1_2",
+   "label": "News source: News websites or apps",
+   "question": "What news sources do you regularly consult?",
+   "choice": "News websites or apps",
+   "choiceCode": "2"
+  },
+  {
+   "key": "MEDIA1_3",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA1",
+   "column": "MEDIA1_3",
+   "label": "News source: TV news",
+   "question": "What news sources do you regularly consult?",
+   "choice": "TV news",
+   "choiceCode": "3"
+  },
+  {
+   "key": "MEDIA1_4",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA1",
+   "column": "MEDIA1_4",
+   "label": "News source: Podcasts",
+   "question": "What news sources do you regularly consult?",
+   "choice": "Podcasts",
+   "choiceCode": "4"
+  },
+  {
+   "key": "MEDIA1_5",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA1",
+   "column": "MEDIA1_5",
+   "label": "News source: Print",
+   "question": "What news sources do you regularly consult?",
+   "choice": "Print",
+   "choiceCode": "5"
+  },
+  {
+   "key": "MEDIA1_6",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA1",
+   "column": "MEDIA1_6",
+   "label": "News source: I rarely follow news",
+   "question": "What news sources do you regularly consult?",
+   "choice": "I rarely follow news",
+   "choiceCode": "6"
+  },
+  {
+   "key": "MEDIA2",
+   "kind": "ordinal",
+   "section": "media",
+   "tag": "MEDIA2",
+   "column": "MEDIA2",
+   "label": "Checks social media multiple times per day",
+   "question": "I check social media multiple times per day.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Never",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Sometimes",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Often",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Very Often",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "MEDIA3_1",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA3",
+   "column": "MEDIA3_1",
+   "label": "Uses platform: Instagram",
+   "question": "Which platform do you use often?",
+   "choice": "Instagram",
+   "choiceCode": "1"
+  },
+  {
+   "key": "MEDIA3_2",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA3",
+   "column": "MEDIA3_2",
+   "label": "Uses platform: TikTok",
+   "question": "Which platform do you use often?",
+   "choice": "TikTok",
+   "choiceCode": "2"
+  },
+  {
+   "key": "MEDIA3_3",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA3",
+   "column": "MEDIA3_3",
+   "label": "Uses platform: YouTube",
+   "question": "Which platform do you use often?",
+   "choice": "YouTube",
+   "choiceCode": "3"
+  },
+  {
+   "key": "MEDIA3_4",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA3",
+   "column": "MEDIA3_4",
+   "label": "Uses platform: X (Twitter)",
+   "question": "Which platform do you use often?",
+   "choice": "X (Twitter)",
+   "choiceCode": "4"
+  },
+  {
+   "key": "MEDIA3_5",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA3",
+   "column": "MEDIA3_5",
+   "label": "Uses platform: Snapchat",
+   "question": "Which platform do you use often?",
+   "choice": "Snapchat",
+   "choiceCode": "5"
+  },
+  {
+   "key": "MEDIA3_6",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA3",
+   "column": "MEDIA3_6",
+   "label": "Uses platform: Reddit",
+   "question": "Which platform do you use often?",
+   "choice": "Reddit",
+   "choiceCode": "6"
+  },
+  {
+   "key": "MEDIA3_7",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA3",
+   "column": "MEDIA3_7",
+   "label": "Uses platform: Other",
+   "question": "Which platform do you use often?",
+   "choice": "Other",
+   "choiceCode": "7"
+  },
+  {
+   "key": "MEDIA3_8",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA3",
+   "column": "MEDIA3_8",
+   "label": "Uses platform: None",
+   "question": "Which platform do you use often?",
+   "choice": "None",
+   "choiceCode": "8"
+  },
+  {
+   "key": "MEDIA_AGREE_1",
+   "kind": "ordinal",
+   "section": "media",
+   "tag": "MEDIA_AGREE",
+   "column": "MEDIA_AGREE_1",
+   "label": "I actively try to verify information before believing or sharing it.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "MEDIA_AGREE_2",
+   "kind": "ordinal",
+   "section": "media",
+   "tag": "MEDIA_AGREE",
+   "column": "MEDIA_AGREE_2",
+   "label": "I enjoy reading books for pleasure, outside of school assignments.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "MEDIA_AGREE_3",
+   "kind": "ordinal",
+   "section": "media",
+   "tag": "MEDIA_AGREE",
+   "column": "MEDIA_AGREE_3",
+   "label": "I watch or listen to long-form content (documentaries, podcasts, in-depth articles) regularly.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "MEDIA_AGREE_4",
+   "kind": "ordinal",
+   "section": "media",
+   "tag": "MEDIA_AGREE",
+   "column": "MEDIA_AGREE_4",
+   "label": "I watch feature-length films regularly.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "MEDIA_AGREE_5",
+   "kind": "ordinal",
+   "section": "media",
+   "tag": "MEDIA_AGREE",
+   "column": "MEDIA_AGREE_5",
+   "label": "I watch TV/streaming shows regularly.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "MEDIA_AGREE_6",
+   "kind": "ordinal",
+   "section": "media",
+   "tag": "MEDIA_AGREE",
+   "column": "MEDIA_AGREE_6",
+   "label": "I listen to music that I select regularly.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "MEDIA_AGREE_7",
+   "kind": "ordinal",
+   "section": "media",
+   "tag": "MEDIA_AGREE",
+   "column": "MEDIA_AGREE_7",
+   "label": "I follow accounts or creators whose views differ from my own.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "MEDIA_AGREE_8",
+   "kind": "ordinal",
+   "section": "media",
+   "tag": "MEDIA_AGREE",
+   "column": "MEDIA_AGREE_8",
+   "label": "I generally trust mainstream news media to report accurately.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "MEDIA4_1",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA4",
+   "column": "MEDIA4_1",
+   "label": "Entertainment via: Streaming video",
+   "question": "How do you primarily consume entertainment?",
+   "choice": "Streaming video",
+   "choiceCode": "1"
+  },
+  {
+   "key": "MEDIA4_2",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA4",
+   "column": "MEDIA4_2",
+   "label": "Entertainment via: Music or audio",
+   "question": "How do you primarily consume entertainment?",
+   "choice": "Music or audio",
+   "choiceCode": "2"
+  },
+  {
+   "key": "MEDIA4_3",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA4",
+   "column": "MEDIA4_3",
+   "label": "Entertainment via: Gaming",
+   "question": "How do you primarily consume entertainment?",
+   "choice": "Gaming",
+   "choiceCode": "3"
+  },
+  {
+   "key": "MEDIA4_4",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA4",
+   "column": "MEDIA4_4",
+   "label": "Entertainment via: Social short-form video",
+   "question": "How do you primarily consume entertainment?",
+   "choice": "Social short-form video",
+   "choiceCode": "4"
+  },
+  {
+   "key": "MEDIA4_5",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA4",
+   "column": "MEDIA4_5",
+   "label": "Entertainment via: Reading",
+   "question": "How do you primarily consume entertainment?",
+   "choice": "Reading",
+   "choiceCode": "5"
+  },
+  {
+   "key": "MEDIA4_6",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA4",
+   "column": "MEDIA4_6",
+   "label": "Entertainment via: Live events",
+   "question": "How do you primarily consume entertainment?",
+   "choice": "Live events",
+   "choiceCode": "6"
+  },
+  {
+   "key": "MEDIA5_1",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA5",
+   "column": "MEDIA5_1",
+   "label": "Music genre: Pop",
+   "question": "What genres of music do you listen to?",
+   "choice": "Pop",
+   "choiceCode": "1"
+  },
+  {
+   "key": "MEDIA5_2",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA5",
+   "column": "MEDIA5_2",
+   "label": "Music genre: Hip-Hop",
+   "question": "What genres of music do you listen to?",
+   "choice": "Hip-Hop",
+   "choiceCode": "2"
+  },
+  {
+   "key": "MEDIA5_3",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA5",
+   "column": "MEDIA5_3",
+   "label": "Music genre: Country",
+   "question": "What genres of music do you listen to?",
+   "choice": "Country",
+   "choiceCode": "3"
+  },
+  {
+   "key": "MEDIA5_4",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA5",
+   "column": "MEDIA5_4",
+   "label": "Music genre: Rock",
+   "question": "What genres of music do you listen to?",
+   "choice": "Rock",
+   "choiceCode": "4"
+  },
+  {
+   "key": "MEDIA5_5",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA5",
+   "column": "MEDIA5_5",
+   "label": "Music genre: Latin",
+   "question": "What genres of music do you listen to?",
+   "choice": "Latin",
+   "choiceCode": "5"
+  },
+  {
+   "key": "MEDIA5_6",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA5",
+   "column": "MEDIA5_6",
+   "label": "Music genre: Folk or Acoustic",
+   "question": "What genres of music do you listen to?",
+   "choice": "Folk or Acoustic",
+   "choiceCode": "6"
+  },
+  {
+   "key": "MEDIA5_7",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA5",
+   "column": "MEDIA5_7",
+   "label": "Music genre: Classical",
+   "question": "What genres of music do you listen to?",
+   "choice": "Classical",
+   "choiceCode": "7"
+  },
+  {
+   "key": "MEDIA5_8",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA5",
+   "column": "MEDIA5_8",
+   "label": "Music genre: Jazz",
+   "question": "What genres of music do you listen to?",
+   "choice": "Jazz",
+   "choiceCode": "8"
+  },
+  {
+   "key": "MEDIA5_9",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA5",
+   "column": "MEDIA5_9",
+   "label": "Music genre: Reggae",
+   "question": "What genres of music do you listen to?",
+   "choice": "Reggae",
+   "choiceCode": "9"
+  },
+  {
+   "key": "MEDIA5_10",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA5",
+   "column": "MEDIA5_10",
+   "label": "Music genre: International or World Music",
+   "question": "What genres of music do you listen to?",
+   "choice": "International or World Music",
+   "choiceCode": "10"
+  },
+  {
+   "key": "MEDIA5_11",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA5",
+   "column": "MEDIA5_11",
+   "label": "Music genre: Electronic (EDM or otherwise)",
+   "question": "What genres of music do you listen to?",
+   "choice": "Electronic (EDM or otherwise)",
+   "choiceCode": "11"
+  },
+  {
+   "key": "MEDIA5_12",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA5",
+   "column": "MEDIA5_12",
+   "label": "Music genre: R&B/Soul",
+   "question": "What genres of music do you listen to?",
+   "choice": "R&B/Soul",
+   "choiceCode": "12"
+  },
+  {
+   "key": "MEDIA5_13",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA5",
+   "column": "MEDIA5_13",
+   "label": "Music genre: Other",
+   "question": "What genres of music do you listen to?",
+   "choice": "Other",
+   "choiceCode": "13"
+  },
+  {
+   "key": "MEDIA6_1",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA6",
+   "column": "MEDIA6_1",
+   "label": "TV/movie genre: Comedy",
+   "question": "What genres of TV/movies do you watch?",
+   "choice": "Comedy",
+   "choiceCode": "1"
+  },
+  {
+   "key": "MEDIA6_2",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA6",
+   "column": "MEDIA6_2",
+   "label": "TV/movie genre: Action",
+   "question": "What genres of TV/movies do you watch?",
+   "choice": "Action",
+   "choiceCode": "2"
+  },
+  {
+   "key": "MEDIA6_3",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA6",
+   "column": "MEDIA6_3",
+   "label": "TV/movie genre: Drama",
+   "question": "What genres of TV/movies do you watch?",
+   "choice": "Drama",
+   "choiceCode": "3"
+  },
+  {
+   "key": "MEDIA6_4",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA6",
+   "column": "MEDIA6_4",
+   "label": "TV/movie genre: Horror",
+   "question": "What genres of TV/movies do you watch?",
+   "choice": "Horror",
+   "choiceCode": "4"
+  },
+  {
+   "key": "MEDIA6_5",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA6",
+   "column": "MEDIA6_5",
+   "label": "TV/movie genre: SFF (Sci-Fi and Fantasy)",
+   "question": "What genres of TV/movies do you watch?",
+   "choice": "SFF (Sci-Fi and Fantasy)",
+   "choiceCode": "5"
+  },
+  {
+   "key": "MEDIA6_6",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA6",
+   "column": "MEDIA6_6",
+   "label": "TV/movie genre: Reality",
+   "question": "What genres of TV/movies do you watch?",
+   "choice": "Reality",
+   "choiceCode": "6"
+  },
+  {
+   "key": "MEDIA6_7",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA6",
+   "column": "MEDIA6_7",
+   "label": "TV/movie genre: Anime",
+   "question": "What genres of TV/movies do you watch?",
+   "choice": "Anime",
+   "choiceCode": "7"
+  },
+  {
+   "key": "MEDIA6_8",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA6",
+   "column": "MEDIA6_8",
+   "label": "TV/movie genre: Documentary",
+   "question": "What genres of TV/movies do you watch?",
+   "choice": "Documentary",
+   "choiceCode": "8"
+  },
+  {
+   "key": "MEDIA6_9",
+   "kind": "multi",
+   "section": "media",
+   "tag": "MEDIA6",
+   "column": "MEDIA6_9",
+   "label": "TV/movie genre: Other",
+   "question": "What genres of TV/movies do you watch?",
+   "choice": "Other",
+   "choiceCode": "9"
+  },
+  {
+   "key": "MEDIA7",
+   "kind": "ordinal",
+   "section": "media",
+   "tag": "MEDIA7",
+   "column": "MEDIA7",
+   "label": "Feels informed about current events",
+   "question": "I feel informed about current events.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "POL1",
+   "kind": "nominal",
+   "section": "political",
+   "tag": "POL1",
+   "column": "POL1",
+   "label": "Party ID",
+   "prefix": "Party ID: ",
+   "question": "In politics today, do you consider yourself a Republican, a Democrat, an independent, or something else?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Republican",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "Democrat",
+     "index": 1
+    },
+    {
+     "code": "3",
+     "label": "Independent",
+     "index": 2
+    },
+    {
+     "code": "4",
+     "label": "Something else",
+     "index": 3
+    },
+    {
+     "code": "5",
+     "label": "Prefer not to say",
+     "index": 4
+    }
+   ]
+  },
+  {
+   "key": "POL3",
+   "kind": "ordinal",
+   "section": "political",
+   "tag": "POL3",
+   "column": "POL3",
+   "label": "Political views (higher = more conservative)",
+   "question": "In general, how would you describe your own political views?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Very liberal",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Liberal",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Moderate",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Conservative",
+     "value": 4
+    },
+    {
+     "code": "5",
+     "label": "Very conservative",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "key": "POL4",
+   "kind": "ordinal",
+   "section": "political",
+   "tag": "POL4",
+   "column": "POL4",
+   "label": "Political views similar to parents (higher = closer)",
+   "question": "How closely do your political views resemble those of your parent(s)/guardian(s)?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Very closely",
+     "value": 4
+    },
+    {
+     "code": "2",
+     "label": "Somewhat closely",
+     "value": 3
+    },
+    {
+     "code": "3",
+     "label": "Not very closely",
+     "value": 2
+    },
+    {
+     "code": "4",
+     "label": "Not at all",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "key": "POL5",
+   "kind": "ordinal",
+   "section": "political",
+   "tag": "POL5",
+   "column": "POL5",
+   "label": "Interest in politics and government",
+   "question": "How much interest, if any, do you have in politics and government?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "None",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "A little",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "A moderate amount",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "A lot",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "POL6",
+   "kind": "nominal",
+   "section": "political",
+   "tag": "POL6",
+   "column": "POL6",
+   "label": "Registered to vote",
+   "prefix": "Registered to vote: ",
+   "question": "Are you registered to vote (if eligible)?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Yes",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "No",
+     "index": 1
+    },
+    {
+     "code": "3",
+     "label": "Not eligible",
+     "index": 2
+    },
+    {
+     "code": "4",
+     "label": "Prefer not to say",
+     "index": 3
+    }
+   ]
+  },
+  {
+   "key": "POL_AGREE1_1",
+   "kind": "ordinal",
+   "section": "political",
+   "tag": "POL_AGREE1",
+   "column": "POL_AGREE1_1",
+   "label": "I feel comfortable discussing political topics with people who disagree with me.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "POL_AGREE1_2",
+   "kind": "ordinal",
+   "section": "political",
+   "tag": "POL_AGREE1",
+   "column": "POL_AGREE1_2",
+   "label": "I believe it's important to vote in elections.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "POL_AGREE1_3",
+   "kind": "ordinal",
+   "section": "political",
+   "tag": "POL_AGREE1",
+   "column": "POL_AGREE1_3",
+   "label": "I am open to changing my political views based on new information or arguments.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "POL_AGREE1_4",
+   "kind": "ordinal",
+   "section": "political",
+   "tag": "POL_AGREE1",
+   "column": "POL_AGREE1_4",
+   "label": "I think it's important for college to expose students to a range of political perspectives, including ones I disagree with.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "POL_FREQ_1",
+   "kind": "ordinal",
+   "section": "political",
+   "tag": "POL_FREQ",
+   "column": "POL_FREQ_1",
+   "label": "Past year: Discuss politics with friends or family",
+   "question": "In the past year, how often did you...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not at All",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Occasionally",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Frequently",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "POL_FREQ_2",
+   "kind": "ordinal",
+   "section": "political",
+   "tag": "POL_FREQ",
+   "column": "POL_FREQ_2",
+   "label": "Past year: Participate in a march, rally, protest, or demonstration",
+   "question": "In the past year, how often did you...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not at All",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Occasionally",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Frequently",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "POL_FREQ_3",
+   "kind": "ordinal",
+   "section": "political",
+   "tag": "POL_FREQ",
+   "column": "POL_FREQ_3",
+   "label": "Past year: Publicly express an opinion about a political or social cause (e.g., online post, petition, letter)",
+   "question": "In the past year, how often did you...",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Not at All",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Occasionally",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Frequently",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "key": "POL7",
+   "kind": "nominal",
+   "section": "political",
+   "tag": "POL7",
+   "column": "POL7",
+   "label": "Political environment growing up",
+   "prefix": "Political environment growing up: ",
+   "question": "How would you describe the political environment you grew up in?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Mostly one-sided",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "Mixed views represented",
+     "index": 1
+    },
+    {
+     "code": "3",
+     "label": "Politically neutral or uninvolved",
+     "index": 2
+    },
+    {
+     "code": "4",
+     "label": "Not sure",
+     "index": 3
+    }
+   ]
+  },
+  {
+   "key": "POL_AGREE2_1",
+   "kind": "ordinal",
+   "section": "political",
+   "tag": "POL_AGREE2",
+   "column": "POL_AGREE2_1",
+   "label": "Wealthy people should pay a larger share of taxes than they currently do.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "POL_AGREE2_2",
+   "kind": "ordinal",
+   "section": "political",
+   "tag": "POL_AGREE2",
+   "column": "POL_AGREE2_2",
+   "label": "The federal government should do more to address climate change.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "REL1",
+   "kind": "nominal",
+   "section": "religious",
+   "tag": "REL1",
+   "column": "REL1",
+   "label": "Religious identity",
+   "prefix": "Religious identity: ",
+   "question": "What is your present religious identity?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Christian (non-Catholic)",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "Roman Catholic",
+     "index": 1
+    },
+    {
+     "code": "3",
+     "label": "Latter-day Saint (Mormon)",
+     "index": 2
+    },
+    {
+     "code": "4",
+     "label": "Orthodox Christian",
+     "index": 3
+    },
+    {
+     "code": "5",
+     "label": "Jewish",
+     "index": 4
+    },
+    {
+     "code": "6",
+     "label": "Muslim",
+     "index": 5
+    },
+    {
+     "code": "7",
+     "label": "Buddhist",
+     "index": 6
+    },
+    {
+     "code": "8",
+     "label": "Hindu",
+     "index": 7
+    },
+    {
+     "code": "9",
+     "label": "Neo-Pagan (e.g., Wiccan)",
+     "index": 8
+    },
+    {
+     "code": "10",
+     "label": "Spiritual but not religious",
+     "index": 9
+    },
+    {
+     "code": "11",
+     "label": "Another religion",
+     "index": 10
+    },
+    {
+     "code": "12",
+     "label": "Atheist",
+     "index": 11
+    },
+    {
+     "code": "13",
+     "label": "Agnostic",
+     "index": 12
+    },
+    {
+     "code": "14",
+     "label": "Nothing in particular",
+     "index": 13
+    },
+    {
+     "code": "15",
+     "label": "Prefer not to say",
+     "index": 14
+    }
+   ]
+  },
+  {
+   "key": "REL2",
+   "kind": "nominal",
+   "section": "religious",
+   "tag": "REL2",
+   "column": "REL2",
+   "label": "Religious change since childhood",
+   "prefix": "Religious change since childhood: ",
+   "question": "Were you raised in a religious tradition different from the one you identify with now?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Yes, I've changed traditions",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "Yes, I've become less religious/nonreligious",
+     "index": 1
+    },
+    {
+     "code": "3",
+     "label": "Yes, I've become more religious",
+     "index": 2
+    },
+    {
+     "code": "4",
+     "label": "No, it's stayed the same",
+     "index": 3
+    },
+    {
+     "code": "5",
+     "label": "Not sure",
+     "index": 4
+    }
+   ]
+  },
+  {
+   "key": "REL3",
+   "kind": "ordinal",
+   "section": "religious",
+   "tag": "REL3",
+   "column": "REL3",
+   "label": "Importance of religion (higher = more important)",
+   "question": "How important is religion in your life?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Very important",
+     "value": 4
+    },
+    {
+     "code": "2",
+     "label": "Somewhat important",
+     "value": 3
+    },
+    {
+     "code": "3",
+     "label": "Not too important",
+     "value": 2
+    },
+    {
+     "code": "4",
+     "label": "Not at all important",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "key": "REL4",
+   "kind": "ordinal",
+   "section": "religious",
+   "tag": "REL4",
+   "column": "REL4",
+   "label": "Centrality of religion in life (higher = more central)",
+   "question": "Which comes closest to how you think about the place of religion in your life?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Religion is the most important thing in my life",
+     "value": 3
+    },
+    {
+     "code": "2",
+     "label": "Religion is one among many important things in my life",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Religion is not that important to me compared with other things in my life",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "key": "REL5",
+   "kind": "ordinal",
+   "section": "religious",
+   "tag": "REL5",
+   "column": "REL5",
+   "label": "Religious service attendance (higher = more often)",
+   "question": "Aside from weddings and funerals, how often do you attend religious services?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "More than once a week",
+     "value": 6
+    },
+    {
+     "code": "2",
+     "label": "Once a week",
+     "value": 5
+    },
+    {
+     "code": "3",
+     "label": "Once or twice a month",
+     "value": 4
+    },
+    {
+     "code": "4",
+     "label": "A few times a year",
+     "value": 3
+    },
+    {
+     "code": "5",
+     "label": "Seldom",
+     "value": 2
+    },
+    {
+     "code": "6",
+     "label": "Never",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "key": "REL6",
+   "kind": "ordinal",
+   "section": "religious",
+   "tag": "REL6",
+   "column": "REL6",
+   "label": "Devotional/spiritual practice (higher = more often)",
+   "question": "How often do you do a practice you consider devotional or spiritual (e.g., pray, meditate, read a sacred text)?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Several times a day",
+     "value": 6
+    },
+    {
+     "code": "2",
+     "label": "Once a day",
+     "value": 5
+    },
+    {
+     "code": "3",
+     "label": "A few times a week",
+     "value": 4
+    },
+    {
+     "code": "4",
+     "label": "A few times a month",
+     "value": 3
+    },
+    {
+     "code": "5",
+     "label": "Seldom",
+     "value": 2
+    },
+    {
+     "code": "6",
+     "label": "Never",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "key": "REL7",
+   "kind": "ordinal",
+   "section": "religious",
+   "tag": "REL7",
+   "column": "REL7",
+   "label": "Certainty of belief in God/higher power (higher = more certain)",
+   "question": "Regardless of whether you attend religious services, how would you describe your belief in God or a higher power?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Absolutely certain a God/higher power exists",
+     "value": 5
+    },
+    {
+     "code": "2",
+     "label": "Fairly certain",
+     "value": 4
+    },
+    {
+     "code": "3",
+     "label": "Not too certain",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Not at all certain",
+     "value": 2
+    },
+    {
+     "code": "5",
+     "label": "I do not believe in God or a higher power",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "key": "REL_AGREE_1",
+   "kind": "ordinal",
+   "section": "religious",
+   "tag": "REL_AGREE",
+   "column": "REL_AGREE_1",
+   "label": "I feel a sense of connection to something larger than myself (spiritual, natural, or otherwise).",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "REL_AGREE_2",
+   "kind": "ordinal",
+   "section": "religious",
+   "tag": "REL_AGREE",
+   "column": "REL_AGREE_2",
+   "label": "My religious or spiritual beliefs have changed since childhood.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "REL_AGREE_3",
+   "kind": "ordinal",
+   "section": "religious",
+   "tag": "REL_AGREE",
+   "column": "REL_AGREE_3",
+   "label": "I am comfortable discussing religion or spirituality with people whose beliefs differ from mine.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "REL_AGREE_4",
+   "kind": "ordinal",
+   "section": "religious",
+   "tag": "REL_AGREE",
+   "column": "REL_AGREE_4",
+   "label": "I expect my religious or spiritual practices to stay about the same in college.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "REL_AGREE_5",
+   "kind": "ordinal",
+   "section": "religious",
+   "tag": "REL_AGREE",
+   "column": "REL_AGREE_5",
+   "label": "I would be interested in connecting with a religious, spiritual, or other meaning-making community on campus.",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "REL_AGREE_6",
+   "kind": "ordinal",
+   "section": "religious",
+   "tag": "REL_AGREE",
+   "column": "REL_AGREE_6",
+   "label": "My personal sense of right and wrong is guided mainly by religious or spiritual teachings (as opposed to other sources).",
+   "question": "For each statement below, indicate how much you agree or disagree.",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Strongly Disagree",
+     "value": 1
+    },
+    {
+     "code": "2",
+     "label": "Disagree Somewhat",
+     "value": 2
+    },
+    {
+     "code": "3",
+     "label": "Agree Somewhat",
+     "value": 3
+    },
+    {
+     "code": "4",
+     "label": "Strongly Agree",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "key": "REL8",
+   "kind": "nominal",
+   "section": "religious",
+   "tag": "REL8",
+   "column": "REL8",
+   "label": "Religious environment growing up",
+   "prefix": "Religious environment growing up: ",
+   "question": "How would you describe the religious environment you grew up in?",
+   "levels": [
+    {
+     "code": "1",
+     "label": "Highly religious",
+     "index": 0
+    },
+    {
+     "code": "2",
+     "label": "Somewhat religious",
+     "index": 1
+    },
+    {
+     "code": "3",
+     "label": "Mixed or secular",
+     "index": 2
+    },
+    {
+     "code": "4",
+     "label": "Not sure",
+     "index": 3
+    }
+   ]
+  }
+ ]
+}
