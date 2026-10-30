@@ -36,7 +36,7 @@ The upload goes over HTTPS to your own server. The pages load no outside scripts
 
 1. **Before class:** open `/analysis.html`, upload the survey. (After any restart, or after Render's free tier has gone to sleep, upload it again.)
 2. **In class:** on `/instructor.html` type a statement and press **Start poll**. Students open the home link and vote. When you press **Close poll** (or start the next statement) the histogram appears on their screens.
-3. **Class view** (`/present.html`, opens in a new tab, for the projector): shows the histogram first. Press **Show patterns** when you want to reveal what lines up with it. It only ever shows class-level patterns (see "Class-safe view").
+3. **Class view** (`/present.html`, opens in a new tab, for the projector): shows the histogram first. Press **Show what lines up** (or the right-arrow key) to reveal one plain-English comparison at a time; **Back** / left arrow goes back, **Show all** lists them, **Hide** returns to the histogram. It only ever shows class-level comparisons (see "Class view").
 4. **Your view** (`/analysis.html`): the full heat map, the chance check, and a click-through breakdown for every cell.
 5. **After class:** press **Download all poll responses (CSV)** on the poll console and keep it somewhere private.
 
@@ -70,17 +70,32 @@ I tested the pipeline against an independent SciPy computation of every cell (1,
 - **p-values:** two-sided permutation test (2,000 shuffles, extended up to 60,000 for strong cells, seeded so results do not change on refresh); p = (exceedances + 1) / (shuffles + 1) as recommended by [Phipson & Smyth (2010), *Stat. Appl. Genet. Mol. Biol.* 9(1), Art. 39](https://ideas.repec.org/a/bpj/sagmbi/v9y2010i1n39.html).
 - **Multiple comparisons:** Benjamini & Hochberg (1995) false-discovery-rate adjustment, *J. R. Stat. Soc. B* 57(1), 289–300, applied separately to each poll's column.
 - **Chance check:** expected number of |ρ| ≥ t among unrelated variables = Σ over cells of 2·[1 − Φ(atanh(t) / √(1.06/(n − 3)))], the Fieller–Hartley–Pearson variance approximation for Spearman's ρ ([*Biometrika* 44(3–4), 470–481, 1957](https://doi.org/10.1093/biomet/44.3-4.470)). I checked it against 200,000-shuffle simulations for n = 12 to 100: within about 10% of the simulated tail, slightly conservative at small n.
-- **Verification in this folder:** `npm test` (28 tests: API, parsing, privacy, rendering, power and null-poll behavior). `python3 test/e2e.py` drives a real Chromium through every page (needs `pip install playwright`). `python3 test/crosscheck.py` recomputes every cell with SciPy.
+- **Verification in this folder:** `npm test` (API, parsing, privacy, rendering, power and null-poll behavior). `python3 test/e2e.py` drives a real Chromium through every page (needs `pip install playwright`). `python3 test/crosscheck.py [folder]` recomputes every heat-map cell with SciPy and re-derives every class-view card (group sizes, who agreed, ordering, the luck line) from the raw CSV files.
 
-## Class-safe view (`/present.html`)
+## Class view (`/present.html`)
 
-For projection. The server (not the browser) enforces these rules:
-- A survey variable appears only if **both** groups being compared have at least **5 students**. Ordered variables are split at the most balanced cut-point that satisfies this.
-- No student codes, no individual answers, no names. Counts are group totals.
+For projection. After the histogram, each "connection" is one card:
+
+> **On the survey:** How important is religion in your life?
+> Students who answered **"Somewhat important or Very important"** were **more likely** to agree with this statement than students who answered **"Not at all important or Not too important"**.
+> 61% agreed (41 of 67 students) · 30% agreed (23 of 76 students)
+
+Each bar splits a group into disagreed / neutral / agreed on the statement just polled.
+
+**How a card is made.** For each survey question the students are split into two groups by their survey answer (yes/no for a single answer or a select-all option; for ordered questions, the most balanced cut-point that leaves at least 5 students on each side). The card reports, for each group, the share who answered Agree or Strongly agree on the poll. Cards appear only if the two shares differ by at least 20 percentage points. The group with the higher share is named first ("more likely").
+
+**Order.** Strongest first, where "strongest" means the gap that stands out most *given the group sizes* (a 40-point gap between 70 and 70 students outranks the same gap between 7 and 9). The first screens cover different survey questions: the best card for each question comes first, second helpings (a different answer to the same question) after. Mirror images (the Yes row and the No row of a two-answer question) are dropped. At most 30 cards.
+
+**"Could be a coincidence" / "Bigger than luck usually makes."** Each card carries one of these two plain notes. The server shuffles who said what on the poll many times (500 shuffles; the survey groups stay fixed), records the most striking gap among *all* the comparisons on offer each time, and takes the level that shuffled data exceeds only 1 time in 10. A card gets the second note only if it beats that level. So the note already accounts for how many questions were compared. The "how to read this" box turns the same calculation into one sentence: how many points two typical-sized groups need to differ before luck stops being a likely explanation. With about 25 students that is roughly 60–70 points, so almost every card will say "could be a coincidence". That is the truth about small classes, not a defect. I checked the calibration with pure-noise polls: 12% of noise polls at 28 students (60 polls) and 15% at 160 students (100 polls) produced at least one "bigger than luck" card, against a design target of 10%. Treat the label as a rough guide.
+
+The server (not the browser) enforces these rules:
+- A comparison appears only if **both** groups have at least **5 students**.
+- No student codes, no individual answers, no names. Only group sizes and group percentages are sent to the page. Correlations, p-values and the chance table are not sent at all.
 - **Political and religious sections are off by default.** Switch them on in section 5 of the Analysis page if you want them projected.
-- It shows the same "how much to trust this" caution as your own view.
 
 Be aware that a group of 5 in a class of 25 is one fifth of the room. Classmates may be able to guess who "the 5 students who …" are. Preview the page before projecting, and keep the sensitive sections off unless you are confident. A minimum group size is a standard rule of thumb for disclosure control, not a guarantee.
+
+**Limits of this view.** It looks only at agreeing (Agree + Strongly agree). If nearly everyone agrees (or nearly everyone disagrees) with a statement there is little to compare and few cards will appear; your own Analysis page still shows the full picture. It does not control for related questions moving together, so two cards about similar survey questions are one finding, not two. And it cannot say why.
 
 ## Privacy: what is stored where
 
@@ -105,7 +120,7 @@ Nothing is sent to Anthropic, analytics services, or any other third party by th
 
 ```
 server.js              HTTP server and all routes (Node built-ins only)
-lib/analysis.js        correlations, q-values, chance check, class-safe rules
+lib/analysis.js        correlations, q-values, chance check, class-view cards and rules
 lib/stats.js           Spearman, permutation test, Benjamini-Hochberg, chance formula
 lib/survey.js          Qualtrics export parser (header rows, text/numeric modes, ID matching)
 lib/codebook.json      how each survey column is scored (generated from your .qsf)
@@ -121,6 +136,7 @@ test/                  automated tests
 **If you change the survey** (new questions, new semester), re-run `node tools/build-codebook.js path/to/new.qsf` and push. The Analysis page reports how many expected question columns it found in the upload; a mismatch means the codebook and the export are out of step.
 
 ## Notes on the survey file (from reading your QSF)
+- `lib/codebook.json` records each question's type (single, matrix, select-all, pick-one-from-list) and wording; the class view quotes that wording. If you change the survey, rebuild it as described above.
 - **Q56** (generative AI tools used) says "select all that apply" but is configured as a single-answer question in Qualtrics, so students could pick only one. It is analyzed as single-choice.
 - **POL2** (party lean) sits in Qualtrics' Trash block and is not in the exports, so it is not analyzed.
 - The AI items Q55–Q59 are grouped into their own "Generative AI" section, though Qualtrics places them at the end of the Academic block.

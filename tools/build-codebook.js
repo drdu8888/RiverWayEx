@@ -158,7 +158,7 @@ for (const { q, section } of ordered) {
       variables.push({
         key: `${tag}_${c.id}`, kind: 'multi', section, tag,
         column: `${tag}_${c.id}`, label: prefix + c.label, question: text,
-        choice: c.label, choiceCode: c.id,
+        type: 'multi', item: c.label, choice: c.label, choiceCode: c.id,
       });
     }
   } else if (q.QuestionType === 'MC') {
@@ -169,14 +169,14 @@ for (const { q, section } of ordered) {
       const valueOf = {};
       scored.forEach((c, i) => (valueOf[c.id] = i + 1));
       variables.push({
-        key: tag, kind: 'ordinal', section, tag, column: tag, label, question: text,
+        key: tag, kind: 'ordinal', section, tag, column: tag, label, question: text, type: 'single', item: null,
         levels: choices.map((c) => ({ code: c.id, label: c.label, value: valueOf[c.id] })),
       });
     } else {
       variables.push({
         key: tag, kind: 'nominal', section, tag, column: tag,
         label: (NOMINAL_PREFIX[tag] || text + ': ').replace(/: $/, ''), prefix: NOMINAL_PREFIX[tag] || text + ': ',
-        question: text,
+        question: text, type: 'nominal', item: null,
         levels: choices.map((c, i) => ({ code: c.id, label: c.label, index: i })),
       });
     }
@@ -193,7 +193,7 @@ for (const { q, section } of ordered) {
     for (const c of orderedChoices(q)) {
       variables.push({
         key: `${tag}_${c.id}`, kind: 'ordinal', section, tag,
-        column: `${tag}_${c.id}`, label: prefix + c.label, question: text, levels,
+        column: `${tag}_${c.id}`, label: prefix + c.label, question: text, type: 'matrix', item: c.label, levels,
       });
     }
   }

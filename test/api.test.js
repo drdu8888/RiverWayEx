@@ -194,15 +194,32 @@ test('detail view returns per-level poll distributions', async () => {
   assert.equal(nominal.groups.length, 2);
 });
 
-test('class-safe view: groups of 5+, no codes, sensitive sections off by default, toggle works', async () => {
+const groupsOf = (c) => [c.more, c.less];
+const keysDeep = (o, acc = new Set()) => {
+  if (Array.isArray(o)) o.forEach((x) => keysDeep(x, acc));
+  else if (o && typeof o === 'object') for (const k of Object.keys(o)) { acc.add(k); keysDeep(o[k], acc); }
+  return acc;
+};
+
+test('class-safe view: groups of 5+, plain percentages, no codes, sensitive sections off by default, toggle works', async () => {
   const p = (await api('GET', '/api/admin/present')).json;
   assert.equal(p.ready, true);
   assert.equal(p.minGroup, 5);
-  assert.ok(p.rows.length > 0);
-  for (const r of p.rows) {
-    for (const g of r.groups) assert.ok(g.n >= 5, `${r.key} group "${g.label}" has only ${g.n}`);
-    assert.notEqual(r.section, 'political');
-    assert.notEqual(r.section, 'religious');
+  assert.ok(p.connections.length > 0);
+  assert.ok(p.connections.length <= 30);
+  for (const c of p.connections) {
+    for (const g of groupsOf(c)) {
+      assert.ok(g.n >= 5, `${c.key} group "${g.label}" has only ${g.n}`);
+      assert.equal(g.agree + g.neutral + g.disagree, g.n, `${c.key}: agree + neutral + disagree must equal the group size`);
+      assert.equal(g.pct, Math.round((g.agree / g.n) * 100));
+    }
+    assert.ok(c.more.pct > c.less.pct, 'the "more likely" group really has the higher share');
+    assert.equal(c.gap, Math.round((c.more.agree / c.more.n - c.less.agree / c.less.n) * 100));
+    assert.ok(c.gap >= p.minGap, `gap ${c.gap} is below the ${p.minGap}-point floor`);
+    assert.ok(['single', 'matrix', 'multi', 'nominal', 'poll'].includes(c.type));
+    assert.equal(typeof c.beyondLuck, 'boolean');
+    assert.notEqual(c.section, 'political');
+    assert.notEqual(c.section, 'religious');
   }
   assert.ok(!/\b\d{4}\b.*student|student_code|"code"/i.test(JSON.stringify(p)), 'no student codes in payload');
   assert.ok(p.hidden >= 0);
@@ -211,8 +228,8 @@ test('class-safe view: groups of 5+, no codes, sensitive sections off by default
     let seen = 0;
     for (const poll of p.polls) {
       const r = (await api('GET', `/api/admin/present?poll=${poll.id}`)).json;
-      for (const row of r.rows) for (const g of row.groups) assert.ok(g.n >= 5);
-      seen += r.rows.filter((x) => x.section === 'religious').length;
+      for (const c of r.connections) for (const g of groupsOf(c)) assert.ok(g.n >= 5);
+      seen += r.connections.filter((x) => x.section === 'religious').length;
     }
     return seen;
   };
@@ -223,6 +240,33 @@ test('class-safe view: groups of 5+, no codes, sensitive sections off by default
   assert.ok((await religiousShown()) > 0, 'religious items should appear for at least one poll once enabled');
   await api('POST', '/api/admin/present-config', { sections: ids.filter((s) => s !== 'religious') }); // restore default
   assert.equal(await religiousShown(), 0);
+});
+
+test('class-safe view: one card per survey question before any question repeats, no mirror images', async () => {
+  const tagOf = (c) => c.key.split('#')[0].replace(/_\d+$/, '');
+  for (const poll of (await api('GET', '/api/admin/present')).json.polls) {
+    const p = (await api('GET', `/api/admin/present?poll=${poll.id}`)).json;
+    const tags = p.connections.map(tagOf);
+    // the cards come in two runs: first the strongest card of each question, then second helpings
+    const firstRun = tags.findIndex((t, i) => tags.indexOf(t) !== i);
+    const run = firstRun === -1 ? tags.length : firstRun;
+    assert.equal(new Set(tags.slice(0, run)).size, run, `${poll.label}: first run must be all different questions`);
+    assert.ok(run >= Math.min(8, p.connections.length), `${poll.label}: first screens should span several questions (got ${run})`);
+    // no card is the exact mirror of another (same question, same two groups, same counts)
+    const sig = p.connections.map((c) => tagOf(c) + '|' + groupsOf(c).map((g) => `${g.n}:${g.agree}`).sort().join('/'));
+    assert.equal(new Set(sig).size, sig.length, `${poll.label}: mirror-image cards`);
+  }
+});
+
+test('class-safe payload speaks plainly: no correlations, p-values, or chance tables are sent to the projector page', async () => {
+  await api('POST', '/api/admin/survey', { csv: sample('SAMPLE_survey_export_FAKE.csv') });
+  const p = (await api('GET', '/api/admin/present')).json;
+  const keys = keysDeep(p);
+  for (const banned of ['rho', 'cells', 'context', 'chance', 'noiseCeiling', 'tests', 'p', 'q', 'mean', 'dist']) assert.ok(!keys.has(banned), `payload must not carry "${banned}"`);
+  assert.deepEqual(Object.keys(p.connections[0]).sort(), ['beyondLuck', 'gap', 'item', 'key', 'less', 'more', 'question', 'section', 'type']);
+  assert.deepEqual(Object.keys(p.connections[0].more).sort(), ['agree', 'disagree', 'label', 'n', 'neutral', 'pct', 'yes']);
+  assert.ok(p.matched > 0 && p.compared > 100 && p.luckGap > 0 && p.luckGap <= 100);
+  assert.ok(p.luckGap >= 40, `at ~25 students luck alone should need a big gap (got ${p.luckGap})`);
 });
 
 test('survey data lives in memory only: nothing from the survey is written to disk, and clearing works', async () => {
@@ -259,11 +303,4 @@ test('every response carries a Content-Security-Policy that blocks outside scrip
     assert.match(csp, /connect-src 'self'/, p);
     assert.ok(!/unsafe-eval|https?:/.test(csp), `${p}: CSP must not allow eval or outside hosts`);
   }
-});
-
-test('class-safe payload carries only class-level context', async () => {
-  await api('POST', '/api/admin/survey', { csv: sample('SAMPLE_survey_export_FAKE.csv') });
-  const p = (await api('GET', '/api/admin/present')).json;
-  assert.deepEqual(Object.keys(p.context).sort(), ['chance', 'matched', 'noiseCeiling', 'tests']);
-  assert.ok(p.context.matched > 0 && p.context.tests > 100);
 });

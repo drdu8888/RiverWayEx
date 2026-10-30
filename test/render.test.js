@@ -75,8 +75,6 @@ test('chance verdict: flags excess only when clearly above expectation', () => {
   assert.match(above.text, /0\.5/);
   assert.equal(R.smallNNote({ matched: 200, tests: 234, noiseCeiling: 0.3 }), '');
   assert.match(R.smallNNote({ matched: 24, tests: 234, noiseCeiling: 0.55 }), /24 matched students.*\.55/);
-  assert.equal(R.classCaution({ chance: [], matched: 10 }), null);
-  assert.equal(R.classCaution({ chance: near.level && [{ t: 0.3, observed: 48, expected: 34.7 }], matched: 24, tests: 234, noiseCeiling: 0.55 }).level, 'warn');
 });
 
 test('plain-language description names the direction and strength', () => {
@@ -89,6 +87,89 @@ test('plain-language description names the direction and strength', () => {
   assert.match(R.describe(d(-0.6, 'binary')), /“X”.*agree less.*strong/);
   assert.match(R.describe(d(0.03, 'ordinal')), /Essentially no relationship/);
   assert.match(R.describe({ ...d(0.35, 'ordinal', 'polls'), row: { kind: 'ordinal', section: 'polls', label: 'P3: stmt' } }), /agreed more with P3.*also tended/);
+});
+
+// ---------- class view: plain-English connections ----------
+const grp = (label, n, agree, disagree, yes) => ({ label, yes: yes === undefined ? null : yes, n, agree, disagree, neutral: n - agree - disagree, pct: Math.round((agree / n) * 100) });
+const conn = (o) => ({ key: 'K', section: 'academic', type: 'single', question: 'How often do you study?', item: null, gap: 40, beyondLuck: false,
+  more: grp('Often or Very Often', 10, 8, 1), less: grp('Never to Sometimes', 12, 4, 5), ...o });
+
+test('summary line: three shares that always add to 100', () => {
+  assert.equal(R.agreeSummaryText([2, 3, 5, 8, 7]), '60% agreed · 20% neutral · 20% disagreed');
+  const s = R.agreeSummary([1, 1, 1, 0, 0]);
+  assert.equal(s.agree + s.neutral + s.disagree, 100);
+  assert.equal(R.agreeSummary([0, 0, 0, 0, 0]), null);
+  assert.equal(R.agreeSummaryText([0, 0, 0, 0, 0]), '');
+});
+
+test('degree words follow the size of the gap', () => {
+  assert.equal(R.degreeWord(20), 'somewhat more likely');
+  assert.equal(R.degreeWord(29), 'somewhat more likely');
+  assert.equal(R.degreeWord(30), 'more likely');
+  assert.equal(R.degreeWord(49), 'more likely');
+  assert.equal(R.degreeWord(50), 'much more likely');
+});
+
+test('sentences read as "students who answered X were more likely to agree than students who answered Y"', () => {
+  const plain = (h) => h.replace(/<[^>]+>/g, '');
+  assert.equal(
+    plain(R.connectionSentenceHtml(conn({}))),
+    'Students who answered “Often or Very Often” were more likely to agree with this statement than students who answered “Never to Sometimes” (80% agreed vs. 33%). They were also less likely to disagree (10% vs. 42%).'
+  );
+  // yes/no: a single answer chosen from a list
+  const nominal = conn({ type: 'nominal', item: 'Rural area', question: 'I grew up primarily in a', more: grp('Rural area', 9, 7, 0, true), less: grp('Not: Rural area', 14, 4, 6, false), gap: 55 });
+  assert.equal(plain(R.connectionSentenceHtml(nominal)), 'Students who answered “Rural area” were much more likely to agree with this statement than students who answered something else (78% agreed vs. 29%). They were also less likely to disagree (0% vs. 43%).');
+  // the comparison group can be the one that is MORE likely
+  const flipped = { ...nominal, more: nominal.less, less: nominal.more };
+  assert.equal(plain(R.connectionSentenceHtml(flipped)), 'Students who answered something other than “Rural area” were much more likely to agree with this statement than students who answered “Rural area” (29% agreed vs. 78%).');
+  // select-all questions
+  const multi = conn({ type: 'multi', item: 'Reddit', more: grp('Selected', 9, 7, 1, true), less: grp('Not selected', 17, 5, 8, false), gap: 25 });
+  assert.equal(plain(R.connectionSentenceHtml(multi)), 'Students who selected “Reddit” were somewhat more likely to agree with this statement than students who did not (78% agreed vs. 29%). They were also less likely to disagree (11% vs. 47%).');
+  assert.match(plain(R.connectionSentenceHtml({ ...multi, more: multi.less, less: multi.more })), /^Students who did not select “Reddit” were .* than students who did \(29% agreed vs\. 78%\)\.$/);
+  // an earlier class statement
+  const poll = conn({ type: 'poll', item: 'P2', question: 'Religion belongs in public life.', more: grp('Agree or Strongly agree', 8, 6, 1), less: grp('Strongly disagree to Neutral', 15, 4, 6) });
+  assert.equal(plain(R.connectionSentenceHtml(poll)), 'Students who answered “Agree or Strongly agree” on P2 were more likely to agree with this statement than students who answered “Strongly disagree to Neutral” (75% agreed vs. 27%). They were also less likely to disagree (13% vs. 40%).');
+});
+
+test('each card names its source question and shows both groups with what they said', () => {
+  const html = R.connectionHtml(conn({ type: 'matrix', question: 'In the past year, how often did you do each of the following?', item: 'Felt bored in class' }));
+  assert.match(html, /On the survey/);
+  assert.match(html, /In the past year, how often did you do each of the following\?/);
+  assert.match(html, /Felt bored in class/);
+  assert.match(html, /80% <small>agreed<\/small>/);
+  assert.match(html, /33% <small>agreed<\/small>/);
+  assert.match(html, /1 disagreed · 1 neutral · 8 agreed/);
+  assert.match(html, /5 disagreed · 3 neutral · 4 agreed/);
+  assert.match(html, /Answered “Often or Very Often” <small>\(10 students\)/);
+  // every card carries its own colour legend, in words, right above the bars
+  assert.match(html, /Each bar shows how that group voted.*Disagreed or strongly disagreed.*Neutral.*Agreed or strongly agreed.*cb-pair/);
+  // wide segments are labelled with the word, not just a number
+  assert.match(html, />42% disagreed</);
+  assert.match(html, />25% neutral</);
+  assert.match(html, />80% agreed</);
+  assert.match(html, /title="10% neutral \(1 of 10\)"/);
+  assert.equal((html.match(/class="seg /g) || []).length, 6); // 3 segments x 2 groups, none empty here
+  assert.match(R.connectionHtml(conn({ type: 'poll', item: 'P2', question: 'Religion belongs in public life.' })), /Earlier class statement \(P2\)/);
+  assert.match(R.connectionHtml(conn({ type: 'multi', item: 'Reddit', question: 'Which platform do you use often?', more: grp('Selected', 9, 7, 1, true), less: grp('Not selected', 17, 5, 8, false) })), /choose all that apply/);
+});
+
+test('class cards use no statistics vocabulary and carry a plain coincidence note', () => {
+  const all = [conn({}), conn({ beyondLuck: true }), conn({ type: 'nominal', item: 'X', more: grp('X', 5, 4, 0, true), less: grp('Not: X', 20, 5, 10, false) })]
+    .map(R.connectionHtml).join(' ') + R.readingGuideHtml({ minGroup: 5, luckGap: 58 }) + R.readingGuideHtml({ minGroup: 5, luckGap: 100 }) + R.connectionKeyHtml() + R.agreeSummaryText([2, 3, 5, 8, 7]);
+  const text = all.replace(/<[^>]+>/g, ' ');
+  assert.ok(!/\b(p-value|p =|rho|ρ|correlat|significan|q <|Spearman|regression|standard deviation|confidence interval)/i.test(text), 'no jargon: ' + text.match(/\b(p-value|p =|rho|ρ|correlat|significan|q <|Spearman)[^ ]*/i));
+  assert.match(R.connectionHtml(conn({})), /Could be a coincidence/);
+  assert.match(R.connectionHtml(conn({ beyondLuck: true })), /Bigger than luck usually makes/);
+  assert.match(R.readingGuideHtml({ minGroup: 5, luckGap: 58 }), /differ by roughly 58 points/);
+  assert.match(R.readingGuideHtml({ minGroup: 5, luckGap: 58 }), /groups of 5 or more students/);
+  assert.match(R.readingGuideHtml({ minGroup: 5, luckGap: 100 }), /even a very large gap can be a coincidence/);
+  assert.ok(!/points/.test(R.readingGuideHtml({ minGroup: 5, luckGap: null })));
+});
+
+test('survey wording is escaped in the class view', () => {
+  const html = R.connectionHtml(conn({ type: 'matrix', question: 'Q <img src=x onerror=alert(1)>', item: 'I <script>alert(1)</script> agree', more: grp('A <b>', 6, 5, 0), less: grp('B"', 7, 1, 4) }));
+  assert.ok(!/<img|<script/i.test(html));
+  assert.ok(html.includes('&lt;script&gt;'));
 });
 
 test('pages: no inline scripts, no external URLs (the privacy claim on the Analysis page)', () => {

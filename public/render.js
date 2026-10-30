@@ -142,20 +142,6 @@
     );
   }
 
-  // Plain-language caution for the projected class view.
-  function classCaution(ctx) {
-    if (!ctx || !ctx.chance || !ctx.chance.length) return null;
-    const v = chanceVerdict(ctx);
-    const small = smallNNote({ matched: ctx.matched, tests: ctx.tests, noiseCeiling: ctx.noiseCeiling });
-    if (v.level === 'above') {
-      return { level: 'good', text: 'There are more strong patterns here than luck would produce, so some of them are probably real. Even so, a pattern is not a cause.' + (small ? ' ' + small : '') };
-    }
-    return {
-      level: 'warn',
-      text: 'About this many strong-looking patterns would turn up by luck alone when this many comparisons are made, so treat these as questions to discuss, not findings.' + (small ? ' ' + small : ''),
-    };
-  }
-
   function chanceTableHtml(p) {
     let h = '<table class="chance"><thead><tr><th>Correlation at least</th>';
     for (const c of p.chance) h += '<th>±' + c.t.toFixed(1) + '</th>';
@@ -249,44 +235,157 @@
     );
   }
 
-  // ---------- class-safe (projected) view ----------
-  // Returns a heat map with only rho values, no p-values, and a two-group comparison per row.
-  function presentRowsHtml(p) {
-    if (!p.rows.length) return '<p class="muted">No survey variable has two groups of at least ' + p.minGroup + ' students that line up with this statement.</p>';
-    return p.rows
-      .map((r) => {
-        const rho = r.cells[p.poll.id] ? r.cells[p.poll.id][0] : null;
-        return (
-          '<div class="prow"><div class="prow-h"><span class="plabel">' + esc(r.label) + '</span><span class="pr" style="background:' + color(rho).bg + ';color:' + color(rho).fg + '">' +
-          fmtRho(rho) + '</span></div>' + groupsHtml(r.groups) + '</div>'
-        );
-      })
-      .join('');
+  // ---------- class-safe (projected) view: plain-English connections ----------
+  // A "connection" (built by the server) compares two groups of classmates, defined by a survey answer, on how
+  // many of them Agreed / Strongly agreed with the statement just polled:
+  //   { type, question, item, gap, beyondLuck, more:{label,yes,n,agree,disagree,neutral,pct}, less:{...} }
+  // Nothing here uses statistical vocabulary; the sentence says who was more likely to agree, and the bars show it.
+  const SEG = { d: LIKERT_COLORS[0], u: '#d9d9d9', a: LIKERT_COLORS[4] };
+
+  function pct(n, total) {
+    return total ? Math.round((n / total) * 100) : 0;
   }
 
-  function presentMatrixHtml(p) {
-    const others = p.polls;
-    let h = '<table class="hm"><thead><tr><th class="corner">Variable</th>';
-    for (const q of others) h += '<th class="ph' + (q.id === p.poll.id ? ' focus' : '') + '" title="' + esc(q.question) + '">' + esc(q.label) + '</th>';
-    h += '</tr></thead><tbody>';
-    for (const r of p.rows) {
-      h += '<tr><th class="rl">' + esc(r.label) + '</th>';
-      for (const q of others) {
-        const c = r.cells[q.id];
-        if (!c || c[0] == null) {
-          h += '<td class="na"></td>';
-          continue;
-        }
-        const col = color(c[0]);
-        h += '<td class="v" style="background:' + col.bg + ';color:' + col.fg + '">' + fmtRho(c[0]) + '</td>';
-      }
-      h += '</tr>';
+  // "62% agreed · 23% neutral · 15% disagreed" for the histogram caption (the three always add to 100).
+  function agreeSummary(counts) {
+    const total = counts.reduce((x, y) => x + y, 0);
+    if (!total) return null;
+    const agree = pct(counts[3] + counts[4], total);
+    const disagree = pct(counts[0] + counts[1], total);
+    return { total, agree, disagree, neutral: Math.max(0, 100 - agree - disagree) };
+  }
+
+  function agreeSummaryText(counts) {
+    const s = agreeSummary(counts);
+    return s ? s.agree + '% agreed · ' + s.neutral + '% neutral · ' + s.disagree + '% disagreed' : '';
+  }
+
+  function degreeWord(gap) {
+    return gap >= 50 ? 'much more likely' : gap >= 30 ? 'more likely' : 'somewhat more likely';
+  }
+
+  const q = (t) => '<b>“' + esc(t) + '”</b>';
+
+  // "answered “X”" / "selected “X”" for one side of the comparison. `second` = the comparison group (shorter wording).
+  function groupPhrase(c, g, second) {
+    if (c.type === 'nominal') {
+      if (g.yes) return 'answered ' + q(c.item);
+      return second ? 'answered something else' : 'answered something other than ' + q(c.item);
     }
-    return h + '</tbody></table>';
+    if (c.type === 'multi') {
+      if (g.yes) return second ? 'did' : 'selected ' + q(c.item);
+      return second ? 'did not' : 'did not select ' + q(c.item);
+    }
+    if (c.type === 'poll') return 'answered ' + q(g.label) + (second ? '' : ' on ' + esc(c.item));
+    return 'answered ' + q(g.label);
+  }
+
+  // Label printed above each bar: who is in this group.
+  function groupBarLabel(c, g) {
+    if (c.type === 'nominal') return g.yes ? 'Answered “' + c.item + '”' : 'Answered something other than “' + c.item + '”';
+    if (c.type === 'multi') return g.yes ? 'Selected “' + c.item + '”' : 'Did not select “' + c.item + '”';
+    if (c.type === 'poll') return 'Answered “' + g.label + '” on ' + c.item;
+    return 'Answered “' + g.label + '”';
+  }
+
+  // The headline sentence, with the numbers that back it up.
+  function connectionSentenceHtml(c) {
+    const m = c.more;
+    const l = c.less;
+    const md = pct(m.disagree, m.n);
+    const ld = pct(l.disagree, l.n);
+    let s =
+      'Students who ' + groupPhrase(c, m, false) + ' were <em class="deg">' + degreeWord(c.gap) + '</em> to agree with this statement than students who ' +
+      groupPhrase(c, l, true) + ' <span class="nums">(' + m.pct + '% agreed vs. ' + l.pct + '%)</span>.';
+    if (ld - md >= 10) s += ' They were also less likely to disagree <span class="nums">(' + md + '% vs. ' + ld + '%)</span>.';
+    return s;
+  }
+
+  // Where the comparison comes from: { tag, stem, main }.
+  function connectionHead(c) {
+    if (c.type === 'poll') return { tag: 'Earlier class statement (' + c.item + ')', stem: '', main: '“' + c.question + '”' };
+    if (c.type === 'matrix') return { tag: 'On the survey', stem: c.question, main: c.item };
+    if (c.type === 'multi') return { tag: 'On the survey (choose all that apply)', stem: '', main: c.question };
+    return { tag: 'On the survey', stem: '', main: c.question };
+  }
+
+  const SEG_WORD = { d: 'disagreed', u: 'neutral', a: 'agreed' };
+
+  // One group's bar: three labelled segments (disagreed / neutral / agreed) plus the counts in words.
+  function connectionBarHtml(c, g, cls) {
+    const seg = (n, key) => {
+      if (!n) return '';
+      const share = n / g.n;
+      const p = pct(n, g.n) + '%';
+      const txt = share >= 0.22 ? p + ' ' + SEG_WORD[key] : share >= 0.09 ? p : '';
+      return '<span class="seg ' + key + '" title="' + p + ' ' + SEG_WORD[key] + ' (' + n + ' of ' + g.n + ')" style="width:' + (share * 100).toFixed(2) + '%;background:' + SEG[key] + '">' + txt + '</span>';
+    };
+    return (
+      '<div class="cb ' + cls + '"><div class="cb-h"><span class="cb-lab">' + esc(groupBarLabel(c, g)) + ' <small>(' + g.n + ' students)</small></span>' +
+      '<span class="cb-pct">' + g.pct + '% <small>agreed</small></span></div>' +
+      '<div class="cb-bar">' + seg(g.disagree, 'd') + seg(g.neutral, 'u') + seg(g.agree, 'a') + '</div>' +
+      '<div class="cb-n">' + g.disagree + ' disagreed · ' + g.neutral + ' neutral · ' + g.agree + ' agreed</div></div>'
+    );
+  }
+
+  // Legend shown on every card, right above the bars.
+  function connectionLegendHtml() {
+    return (
+      '<div class="conn-legend"><span class="lg-lead">Each bar shows how that group voted on today’s statement:</span>' +
+      '<span><i style="background:' + SEG.d + '"></i>Disagreed or strongly disagreed</span>' +
+      '<span><i style="background:' + SEG.u + '"></i>Neutral</span>' +
+      '<span><i style="background:' + SEG.a + '"></i>Agreed or strongly agreed</span></div>'
+    );
+  }
+
+  function luckNoteHtml(c) {
+    return c.beyondLuck
+      ? '<p class="luck beyond"><strong>Bigger than luck usually makes.</strong> A gap this large would be unusual by chance in a class this size, though it still cannot tell us <em>why</em>.</p>'
+      : '<p class="luck"><strong>Could be a coincidence.</strong> In a class this size, gaps like this can happen by luck alone. Does it make sense to you?</p>';
+  }
+
+  function connectionHtml(c) {
+    const h = connectionHead(c);
+    return (
+      '<article class="conn">' +
+      '<div class="conn-head"><span class="conn-tag">' + esc(h.tag) + '</span>' +
+      (h.stem ? '<span class="conn-stem">' + esc(h.stem) + '</span>' : '') +
+      '<span class="conn-main">' + esc(h.main) + '</span></div>' +
+      '<p class="conn-s">' + connectionSentenceHtml(c) + '</p>' +
+      connectionLegendHtml() +
+      '<div class="cb-pair">' + connectionBarHtml(c, c.more, 'hi') + connectionBarHtml(c, c.less, 'lo') + '</div>' +
+      luckNoteHtml(c) +
+      '</article>'
+    );
+  }
+
+  // The legend now sits on every card (connectionLegendHtml); kept for compatibility.
+  function connectionKeyHtml() {
+    return '';
+  }
+
+  // The one-time "how to read this" text under the connections.
+  function readingGuideHtml(p) {
+    const luck =
+      p.luckGap == null
+        ? ''
+        : p.luckGap >= 90
+          ? ' In a class this small, even a very large gap can be a coincidence.'
+          : ' With this many comparisons in a class this size, two typical-sized groups need to differ by roughly ' + p.luckGap + ' points before luck stops being a likely explanation.';
+    return (
+      '<h3>How to read this</h3>' +
+      '<p>Each card compares two groups of classmates who answered a survey question differently, and shows how many in each group <strong>agreed</strong> with the statement we just voted on. ' +
+      'Only groups of ' + p.minGroup + ' or more students are ever shown, and nobody is named.</p>' +
+      '<p>We are comparing many survey questions in a small class, so some of these gaps are pure coincidence.' + luck +
+      ' Treat each card as a question, not an answer:</p>' +
+      '<ul><li>Does this surprise you? Why or why not?</li><li>What else, besides the survey answer, could explain it?</li><li>Would you expect the same in a different class?</li></ul>'
+    );
   }
 
   return {
-    esc, color, fmtRho, fmtP, marker, strengthWord, selectRows, heatTable, legendHtml, chanceVerdict, smallNNote, classCaution, chanceTableHtml,
-    stackBar, likertKey, groupsHtml, histogramHtml, describe, detailHtml, presentRowsHtml, presentMatrixHtml, LIKERT_COLORS,
+    esc, color, fmtRho, fmtP, marker, strengthWord, selectRows, heatTable, legendHtml, chanceVerdict, smallNNote, chanceTableHtml,
+    stackBar, likertKey, groupsHtml, histogramHtml, describe, detailHtml, LIKERT_COLORS,
+    agreeSummary, agreeSummaryText, degreeWord, groupPhrase, groupBarLabel, connectionSentenceHtml, connectionHead, connectionHtml,
+    connectionKeyHtml, connectionLegendHtml, connectionBarHtml, readingGuideHtml,
   };
 });

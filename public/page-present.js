@@ -4,7 +4,8 @@
   const R = window.Render;
   const el = (id) => document.getElementById(id);
 
-  const S = { pollId: '', showPatterns: false, showAll: false, lastTxt: null, lastPollShown: null };
+  // idx: -1 = connections hidden (class sees only the histogram); 0.. = the connection on screen.
+  const S = { pollId: '', idx: -1, all: false, data: null, lastTxt: null, lastPollShown: null };
 
   async function load() {
     let p;
@@ -18,10 +19,12 @@
     const txt = JSON.stringify(p);
     if (txt === S.lastTxt) return;
     S.lastTxt = txt;
-    render(p);
+    S.data = p;
+    render();
   }
 
-  function render(p) {
+  function render() {
+    const p = S.data;
     el('notReady').style.display = 'none';
     if (!p.ready) {
       el('stage').style.display = 'none';
@@ -41,50 +44,92 @@
     sel.value = S.pollId;
 
     if (S.lastPollShown !== p.poll.id) {
-      // a different statement is on screen: hide the patterns again so the class sees the histogram first
+      // a different statement is on screen: hide the connections again so the class sees the histogram first
       S.lastPollShown = p.poll.id;
-      S.showPatterns = false;
-      S.showAll = false;
+      S.idx = -1;
+      S.all = false;
     }
     el('pollLabel').textContent = p.poll.label;
     el('statement').textContent = p.poll.question;
     el('histo').innerHTML = R.histogramHtml(p.histogram.counts, p.scale);
-    el('histoNote').textContent = p.histogram.total + ' response' + (p.histogram.total === 1 ? '' : 's');
-
-    const rows = S.showAll ? p.rows : p.rows.slice(0, 8);
-    el('patternRows').innerHTML = R.presentRowsHtml(Object.assign({}, p, { rows }));
-    el('key2').innerHTML = R.likertKey(p.scale).replace(/^<div class="likert-key">|<\/div>$/g, '');
-    el('moreBtn').style.display = p.rows.length > 8 ? '' : 'none';
-    el('moreBtn').textContent = S.showAll ? 'Show fewer' : 'Show more';
-    const caution = p.surveyLoaded ? R.classCaution(p.context) : null;
-    el('caution').style.display = caution ? '' : 'none';
-    if (caution) {
-      el('caution').className = 'banner ' + caution.level;
-      el('caution').innerHTML = '<strong>How much to trust this</strong>' + esc(caution.text);
-    }
-    el('patternNote').textContent = !p.surveyLoaded
-      ? 'No survey data is loaded, so only relationships with your other statements can be shown.'
-      : 'Strongest relationships first. Each pair of bars compares two groups of classmates; the number is the rank correlation (ρ). ' +
-        (p.hidden ? p.hidden + ' variable' + (p.hidden === 1 ? ' is' : 's are') + ' hidden because one group would have fewer than ' + p.minGroup + ' students.' : '');
-
-    if (p.polls.length > 1 && p.rows.length) {
-      el('matrixCard').style.display = '';
-      el('matrix').innerHTML = R.presentMatrixHtml(Object.assign({}, p, { rows }));
-      el('legend').innerHTML = R.legendHtml();
-    } else {
-      el('matrixCard').style.display = 'none';
-    }
-    applyVisibility();
+    el('histoNote').textContent = p.histogram.total + ' response' + (p.histogram.total === 1 ? '' : 's') + (p.histogram.total ? ' · ' + R.agreeSummaryText(p.histogram.counts) : '');
+    el('guide').innerHTML = R.readingGuideHtml(p);
+    el('connKey').innerHTML = R.connectionKeyHtml();
+    showConnections();
   }
 
-  function applyVisibility() {
-    el('patterns').style.display = S.showPatterns ? '' : 'none';
-    el('toggleBtn').textContent = S.showPatterns ? 'Hide patterns' : 'Show patterns';
+  function showConnections() {
+    const p = S.data;
+    if (!p || !p.ready) return;
+    const list = p.connections;
+    const open = S.all || S.idx >= 0;
+    el('connections').style.display = open ? '' : 'none';
+
+    if (open) {
+      if (!list.length) {
+        el('connCount').textContent = '';
+        el('connBody').innerHTML =
+          '<p class="muted">' +
+          esc(
+            !p.surveyLoaded
+              ? 'No survey data is loaded, so only comparisons with your earlier statements are possible, and none stands out.'
+              : 'Nothing stands out for this statement: no two groups of ' + p.minGroup + ' or more classmates differ by ' + p.minGap + ' points or more.'
+          ) +
+          '</p>';
+        el('connKey').style.display = 'none';
+      } else {
+        el('connKey').style.display = '';
+        if (S.all) {
+          el('connCount').textContent = 'All ' + list.length + ' connections, biggest differences first';
+          el('connBody').innerHTML = list.map(R.connectionHtml).join('');
+        } else {
+          const i = Math.min(S.idx, list.length - 1);
+          el('connCount').textContent = 'Connection ' + (i + 1) + ' of ' + list.length + ' · biggest differences first';
+          el('connBody').innerHTML = R.connectionHtml(list[i]);
+        }
+      }
+    }
+
+    const n = list.length;
+    el('backBtn').disabled = !open || (!S.all && S.idx < 0);
+    const last = S.idx >= n - 1;
+    el('nextBtn').disabled = S.all || (S.idx >= 0 && (last || !n)) ;
+    el('nextBtn').textContent = S.idx < 0 ? 'Show what lines up' : last || !n ? 'That’s all of them' : 'Next connection →';
+    el('allBtn').textContent = S.all ? 'Show one at a time' : 'Show all';
+    el('allBtn').disabled = !n;
+    el('hideBtn').disabled = !open;
   }
 
-  el('toggleBtn').addEventListener('click', () => { S.showPatterns = !S.showPatterns; applyVisibility(); });
-  el('moreBtn').addEventListener('click', () => { S.showAll = !S.showAll; S.lastTxt = null; load(); });
+  function next() {
+    if (el('nextBtn').disabled) return;
+    S.idx += 1;
+    showConnections();
+  }
+  function back() {
+    if (el('backBtn').disabled) return;
+    if (S.all) S.all = false;
+    else S.idx -= 1;
+    showConnections();
+  }
+
+  el('nextBtn').addEventListener('click', next);
+  el('backBtn').addEventListener('click', back);
+  el('allBtn').addEventListener('click', () => {
+    S.all = !S.all;
+    if (S.all && S.idx < 0) S.idx = 0;
+    showConnections();
+  });
+  el('hideBtn').addEventListener('click', () => {
+    S.idx = -1;
+    S.all = false;
+    showConnections();
+  });
   el('pollSel').addEventListener('change', (e) => { S.pollId = e.target.value; S.lastTxt = null; load(); });
+  document.addEventListener('keydown', (e) => {
+    if (/^(INPUT|SELECT|TEXTAREA)$/.test((e.target && e.target.tagName) || '')) return;
+    if (e.key === 'ArrowRight') next();
+    else if (e.key === 'ArrowLeft') back();
+  });
 
   setupGate(() => {
     load();

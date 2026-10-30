@@ -116,11 +116,14 @@ test('POWER: the class-safe view surfaces the religious items once that section 
   const base = cfg.sections.filter((s) => s.included).map((s) => s.id);
   const poll = (await api('GET', '/api/admin/present')).json.polls.find((p) => p.question === Q.religion).id;
   const off = (await api('GET', `/api/admin/present?poll=${poll}`)).json;
-  assert.ok(!off.rows.some((r) => r.section === 'religious'));
+  assert.ok(!off.connections.some((c) => c.section === 'religious'));
   await api('POST', '/api/admin/present-config', { sections: base.concat('religious') });
   const on = (await api('GET', `/api/admin/present?poll=${poll}`)).json;
-  assert.ok(on.rows.filter((r) => r.section === 'religious').length >= 3);
-  for (const r of on.rows) for (const g of r.groups) assert.ok(g.n >= 5);
+  const rel = on.connections.filter((c) => c.section === 'religious');
+  assert.ok(rel.length >= 3);
+  for (const c of on.connections) for (const g of [c.more, c.less]) assert.ok(g.n >= 5);
+  // the planted effects are big at n = 160: the strongest religious cards must clear the "luck" line
+  assert.ok(rel.slice(0, 3).every((c) => c.beyondLuck && c.gap >= 30), JSON.stringify(rel.slice(0, 3).map((c) => [c.key, c.gap, c.beyondLuck])));
   await api('POST', '/api/admin/present-config', { sections: base });
 });
 

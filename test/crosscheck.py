@@ -3,10 +3,12 @@
 
     python3 test/crosscheck.py [folder_with_sample_csvs]        (needs: pip install scipy)
 
-Exits non-zero if any correlation or pair count disagrees.
+Also re-derives every class-view card (group sizes, who agreed, the 20-point floor, the balanced split, the
+ordering, and the "luck" line) and exits non-zero if any correlation, pair count or card disagrees.
 """
-import csv, json, os, subprocess, sys, tempfile, time, urllib.request
+import csv, json, math, os, subprocess, sys, tempfile, time, urllib.request
 from collections import defaultdict
+import numpy as np
 from scipy.stats import spearmanr
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -125,6 +127,95 @@ try:
     if mism_rho or mism_n:
         sys.exit(1)
     print('app rows:', len(api['rows']), '| polls:', [(p['label'], p['votes'], p['matched'], p['unmatched']) for p in api['polls']])
+
+    # ---------- class-view cards, re-derived independently ----------
+    call('POST', '/api/admin/present-config', {'sections': [s['id'] for s in book['sections']]})
+    LIK = ['strongly disagree', 'disagree', 'neutral', 'agree', 'strongly agree']
+    MIN_G, FLOOR = 5, 0.20
+    rid_of = {ap['id']: next(r for r, qq in qtext.items() if qq == ap['question']) for ap in api['polls']}
+
+    def standout(a0, n0, a1, n1):
+        pooled = (a0 + a1 + 1) / (n0 + n1 + 2)
+        return abs(a1 / n1 - a0 / n0) / math.sqrt(pooled * (1 - pooled) * (1 / n0 + 1 / n1))
+
+    card_bad = cards_checked = 0
+    for ap in api['polls']:
+        pm = polls[rid_of[ap['id']]]
+        codes = sorted(pm)
+        agree = np.array([1 if pm[c] >= 4 else 0 for c in codes])
+        dis = np.array([1 if pm[c] <= 2 else 0 for c in codes])
+        # every comparison on offer: (key, member indexes, side 0/1, counts)
+        family = {}
+        others = {f"poll:{o['id']}": polls[rid_of[o['id']]] for o in api['polls'] if o['id'] != ap['id']}
+        sources = dict(vals); sources.update(others)
+        for key, m in sources.items():
+            idx = [i for i, c in enumerate(codes) if c in m]
+            if len(idx) < 8:
+                continue
+            rv = [m[codes[i]] for i in idx]
+            uniq = sorted(set(rv))
+            binary = set(rv) <= {0, 1} and not key.startswith('poll:') and not any(v['key'] == key and v['kind'] == 'ordinal' for v in book['variables'])
+            if binary:
+                if sum(rv) < MIN_G or len(rv) - sum(rv) < MIN_G:
+                    continue
+                side = [int(v == 1) for v in rv]
+            else:
+                best = None
+                for t in uniq[:-1]:
+                    lo = sum(v <= t for v in rv); hi = len(rv) - lo
+                    if lo >= MIN_G and hi >= MIN_G and (best is None or abs(lo - hi) < best[1]):
+                        best = (t, abs(lo - hi))
+                if best is None:
+                    continue
+                side = [int(v > best[0]) for v in rv]
+            idx = np.array(idx); side = np.array(side)
+            n1 = int(side.sum()); n0 = len(side) - n1
+            a1 = int(agree[idx][side == 1].sum()); a0 = int(agree[idx][side == 0].sum())
+            d1 = int(dis[idx][side == 1].sum()); d0 = int(dis[idx][side == 0].sum())
+            family[key] = dict(idx=idx, side=side, n0=n0, n1=n1, a0=a0, a1=a1, d0=d0, d1=d1, z=standout(a0, n0, a1, n1), gap=abs(a1 / n1 - a0 / n0))
+
+        r = call('GET', f"/api/admin/present?poll={ap['id']}")
+        # luck line: shuffle the poll answers, 90th percentile of the largest standout among all comparisons
+        rng = np.random.default_rng(1)
+        B = 2000
+        shuf = np.stack([rng.permutation(agree) for _ in range(B)])
+        mx = np.zeros(B)
+        for f in family.values():
+            A = shuf[:, f['idx']]
+            a1s = A[:, f['side'] == 1].sum(1); a0s = A[:, f['side'] == 0].sum(1)
+            n0, n1 = f['n0'], f['n1']
+            pooled = (a0s + a1s + 1) / (n0 + n1 + 2)
+            z = np.abs(a1s / n1 - a0s / n0) / np.sqrt(pooled * (1 - pooled) * (1 / n0 + 1 / n1))
+            mx = np.maximum(mx, z)
+        luck_z = float(np.quantile(mx, 0.9))
+        need = sorted(luck_z * math.sqrt(0.25 * (1 / f['n0'] + 1 / f['n1'])) for f in family.values())
+        luck_gap = min(100, round(need[len(need) // 2] * 100))
+        if abs(luck_gap - r['luckGap']) > 4:
+            card_bad += 1; print('LUCK LINE differs', ap['label'], 'api', r['luckGap'], 'python', luck_gap)
+
+        if r['compared'] != len(family):
+            card_bad += 1; print('COMPARED differs', ap['label'], r['compared'], len(family))
+        eligible = sorted((f['z'], k) for k, f in family.items() if f['gap'] >= FLOOR - 1e-9)
+        if r['connections'] and eligible and r['connections'][0]['key'] != eligible[-1][1] and abs(family[r['connections'][0]['key']]['z'] - eligible[-1][0]) > 1e-9:
+            card_bad += 1; print('TOP CARD differs', ap['label'], r['connections'][0]['key'], eligible[-1][1])
+        for c in r['connections']:
+            f = family.get(c['key'])
+            cards_checked += 1
+            if f is None:
+                card_bad += 1; print('CARD for a comparison the independent code does not offer', c['key']); continue
+            got = sorted([(g['n'], g['agree'], g['disagree']) for g in (c['more'], c['less'])])
+            exp = sorted([(f['n0'], f['a0'], f['d0']), (f['n1'], f['a1'], f['d1'])])
+            if got != exp:
+                card_bad += 1; print('COUNTS differ', ap['label'], c['key'], got, exp)
+            if c['gap'] != math.floor(f['gap'] * 100 + 0.5) or c['gap'] < 20:
+                card_bad += 1; print('GAP differs', c['key'], c['gap'], f['gap'])
+            if c['beyondLuck'] != (f['z'] > luck_z):
+                # tolerate disagreement only when the card sits within Monte-Carlo noise of the line
+                if abs(f['z'] - luck_z) > 0.15:
+                    card_bad += 1; print('LUCK FLAG differs', c['key'], c['beyondLuck'], round(f['z'], 2), round(luck_z, 2))
+    print(f'class view: {cards_checked} cards re-derived from the raw files; disagreements: {card_bad}')
+    if card_bad:
+        sys.exit(1)
 
     # ---------- what does the heat map actually surface? ----------
     for p in api['polls']:

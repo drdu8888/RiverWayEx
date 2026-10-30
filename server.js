@@ -405,12 +405,9 @@ const server = http.createServer(async (req, res) => {
           return sendJson(res, 200, { ready: false, reason: 'No closed poll with enough responses yet.', polls: [] });
         }
         const pollId = query.get('poll') || list[list.length - 1].id;
-        const out = analysis.present(model, pollId, presentSections, 20, survey);
-        if (!out) return sendJson(res, 404, { error: 'Unknown poll.' });
-        out.ready = true;
-        out.surveyLoaded = !!survey;
-        out.includedSections = [...presentSections];
-        return sendJson(res, 200, out);
+        const shown = analysis.present(model, pollId, presentSections, 30, survey);
+        if (!shown) return sendJson(res, 404, { error: 'Unknown poll.' });
+        return sendJson(res, 200, { ...shown, ready: true, surveyLoaded: !!survey, includedSections: [...presentSections] });
       }
 
       return sendJson(res, 404, { error: 'Not found' });

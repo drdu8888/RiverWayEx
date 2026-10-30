@@ -21,7 +21,10 @@
     <div class="ctl" id="controls" style="justify-content:space-between;">
       <div><label for="pollSel">Statement</label><select id="pollSel"></select></div>
       <div class="row">
-        <button class="secondary" id="toggleBtn" type="button">Show patterns</button>
+        <button class="secondary" id="backBtn" type="button">← Back</button>
+        <button id="nextBtn" type="button">Show what lines up</button>
+        <button class="secondary" id="allBtn" type="button">Show all</button>
+        <button class="secondary" id="hideBtn" type="button">Hide</button>
       </div>
     </div>
 
@@ -33,21 +36,14 @@
         <div class="status" id="histoNote"></div>
       </div>
 
-      <div id="patterns" style="display:none;">
+      <div id="connections" style="display:none;">
         <div class="card">
-          <h2 style="margin-top:0;">What lines up with this?</h2>
-          <div class="banner warn" id="caution" style="display:none;"></div>
-          <p class="muted" id="patternNote"></p>
-          <div class="prow-grid" id="patternRows"></div>
-          <div class="row" style="margin-top:10px;"><button class="secondary" id="moreBtn" type="button" style="display:none;">Show more</button></div>
-          <div class="likert-key" id="key2"></div>
+          <h2 class="conn-title">What lines up with this?</h2>
+          <div class="conn-count" id="connCount"></div>
+          <div id="connBody"></div>
+          <div id="connKey"></div>
         </div>
-        <div class="card" id="matrixCard" style="display:none;">
-          <h2 style="margin-top:0;">The same variables across every statement so far</h2>
-          <div class="hm-scroll" id="matrix"></div>
-          <div id="legend"></div>
-        </div>
-        <p class="muted small">Patterns in a small class are suggestive, not proof, and a pattern is not a cause. Only groups of 5 or more students are ever shown; no individual answers are displayed.</p>
+        <div class="card talk" id="guide"></div>
       </div>
     </div>
     <div class="banner info" id="notReady" style="display:none;"></div>
